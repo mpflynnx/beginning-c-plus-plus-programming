@@ -46,14 +46,14 @@ Here, we declare a new integer variable named `favourite_number`.
 std::cout << "Enter your favorite number between 1 and 100? ";
 ```
 
-Use namespace `std`, `cout` object to output to the console, the text in double quotes.
+Use namespace `std`, `cout` object to output to the console, the text in double quotes. `::` is known as the scope resolution operator.
 
-Insertion operator `<<` is use to insert into `cout`.
+A stream insertion operator `<<` is use to insert into `cout`.
 
 ```c
     std::cin >> favorite_number;
 ```
-Here, we use `std` `cin` object to retrieve the console input and store it in variable named `favourite_number`.
+Here, we use `std` `cin` object with the stream extraction operator to retrieve the console input and store it in variable named `favourite_number`.
 
 ```c
     std::cout << "Amazing, that's my favorite number too!" << std::endl;
