@@ -1,4 +1,4 @@
-## Hello World first C++ Program
+## Hello world first C++ program
 
 Create a new file named `main.cpp`
 
