@@ -7,17 +7,10 @@ using std::endl;
 int main()
 {
 
-    int num1;
-    double num3;
-
-    cout << "Enter an integer: ";
-    cin >> num1;
-
-    cout << "Enter a double: ";
-    cin >> num3;
-
-    cout << "The integer is: " << num1 << endl;
-    cout << "And the double is: " << num3 << endl;
+    cout << "Welcome to the carpet cleaning service" << endl;
+    cout << "How many rooms to clean? ";
+    int rooms_to_clean {0};
+    cin >> rooms_to_clean;
 
     return 0;
 }

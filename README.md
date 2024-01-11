@@ -20,9 +20,30 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [cout, cin example3 using integers](/docs/section5.md#cout-cin-example3-using-integers)
     - [cout, cin example4 using doubles](/docs/section5.md#cout-cin-example4-using-doubles)
     - [cout, cin example5 using integers and doubles](/docs/section5.md#cout-cin-example5-using-integers-and-doubles)
-
+- [Section6: Variables and Constants](/docs/section6.md)
+    - [Naming variables](/docs/section6.md#naming-variables)
+    - [Variable naming style and best practice](/docs/section6.md#variable-naming-style-and-best-practice)
+    - [Example program using int type variables](/docs/section6.md#example-program-using-int-type-variables)
+    - [Global variables](/docs/section6.md#global-variables)
+    - [Built-in Primitive Types](/docs/section6.md#built-in-primitive-types)
+    - [Types sizes](/docs/section6.md#types-sizes)
+    - [Character Types](/docs/section6.md#character-types)
+    - [Integer Types](/docs/section6.md#integer-types)
+    - [Floating-point Types](/docs/section6.md#floating-point-types)
+    - [Boolean Type](/docs/section6.md#boolean-type)
+    - [Overflow examples](/docs/section6.md#overflow-examples)
+    - [sizeof operator](/docs/section6.md#sizeof-operator)
+    - [Example usage of `sizeof` for integrals](/docs/section6.md#example-usage-of-sizeof-for-integrals)
+    - [Example usage of `sizeof` for floats](/docs/section6.md#example-usage-of-sizeof-for-floats)
+    - [Example usage of `<climits>` _MIN constants](/docs/section6.md#example-usage-of-climits-_min-constants)
+    - [Example usage of `<climits>` _MAX constants](/docs/section6.md#example-usage-of-climits-_max-constants)
+    - [Example usage of `sizeof` with variable names](/docs/section6.md#example-usage-of-sizeof-with-variable-names)
 
 ## References
 
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)
 - [Preprocessor](https://en.cppreference.com/w/cpp/preprocessor)
+- [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+- [Fundamental types](https://en.cppreference.com/w/cpp/language/types)
+- [clangd is a language server that can work with many editors via a plugin.](https://clangd.llvm.org/)
+
