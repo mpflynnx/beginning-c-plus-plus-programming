@@ -1,17 +1,23 @@
 #include <iostream>
 
-int main(int argc, char *argv[])
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main()
 {
 
-    int favorite_number;
+    int num1;
+    double num3;
 
-    std::cout << "Enter your favorite number between 1 and 100? ";
+    cout << "Enter an integer: ";
+    cin >> num1;
 
-    std::cin >> favorite_number;
+    cout << "Enter a double: ";
+    cin >> num3;
 
-    std::cout << "Amazing, that's my favorite number too!" << std::endl;
-
-    std::cout << "No really, " << favorite_number << " is my favourite number." << std::endl; 
+    cout << "The integer is: " << num1 << endl;
+    cout << "And the double is: " << num3 << endl;
 
     return 0;
 }
