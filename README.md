@@ -38,6 +38,11 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [Example usage of `<climits>` _MIN constants](/docs/section6.md#example-usage-of-climits-_min-constants)
     - [Example usage of `<climits>` _MAX constants](/docs/section6.md#example-usage-of-climits-_max-constants)
     - [Example usage of `sizeof` with variable names](/docs/section6.md#example-usage-of-sizeof-with-variable-names)
+    - [What is a constant?](/docs/section6.md#what-is-a-constant)
+    - [Literal constant examples](/docs/section6.md#literal-constant-examples)
+    - [Declared constants](/docs/section6.md#declared-constants)
+    - [Preprocessor defined constant](/docs/section6.md#preprocessor-defined-constant)
+    - [Simple program using declared constants](/docs/section6.md#simple-program-using-declared-constants)
 
 ## References
 

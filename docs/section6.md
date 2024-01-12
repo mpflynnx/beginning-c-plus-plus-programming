@@ -406,7 +406,7 @@ wage is 8 bytes.
 - Their value cannot change once declared
 
 **Types of constants**
-- Literal constants
+- Literals or literal constants
 - Declared constants ***(preferred over literal)**
     - const keyword
 - Constant expressions
@@ -455,19 +455,18 @@ my friend
 ```
 ### Declared constants
 
-Constants declared using `const` keyword.
+Constants declared using `const` keyword. (**Recommended**)
 
 ```c
 const double pi {3.1415926};
 
 const int months_in_year {12};
 ```
-Trying to update a constant.
+Trying to update a constant, will result in a IDE warning: Cannot assign to variable 'pi' with const-qualified type.
 
 ```c
 pi = 2.5; // compiler error
 ```
-IDE warning: Cannot assign to variable 'pi' with const-qualified type
 
 ### Preprocessor defined constant
 Don't use this in modern `C++`, this is `C` style.
@@ -475,3 +474,53 @@ Don't use this in modern `C++`, this is `C` style.
 #define pi 3.1415926
 ```
 
+### Simple program using declared constants
+
+```c
+#include <iostream>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main()
+{
+
+    cout << "Welcome to the carpet cleaning service" << endl;
+    cout << "\nHow many rooms to clean? ";
+
+    int rooms_to_clean {0};
+    cin >> rooms_to_clean;
+
+    const double price_per_room {30};
+    const double sales_tax {0.2};
+    const int estimate_expiry {30};
+
+    cout << "\nEstimate for carpet cleaning service" << endl;
+    cout << "Number of rooms: " << rooms_to_clean  << endl;
+    cout << "Price per room: £" << price_per_room << endl;
+    double total_for_rooms {price_per_room * rooms_to_clean};
+    cout << "Total cost for rooms: £" << total_for_rooms << endl;
+    double tax_to_pay {total_for_rooms * sales_tax};
+    cout << "Tax: £" << tax_to_pay << endl;
+    cout << "Total estimate: £" << total_for_rooms + tax_to_pay << endl;
+    cout << "The estimate is valid for " << estimate_expiry << " days." << endl;
+
+    return 0;
+}
+```
+
+**Output**
+```bash
+Welcome to the carpet cleaning service
+
+How many rooms to clean? 2
+
+Estimate for carpet cleaning service
+Number of rooms: 2
+Price per room: £30
+Total cost for rooms: £60
+Tax: £12
+Total estimate: £72
+The estimate is valid for 30 days.
+```
