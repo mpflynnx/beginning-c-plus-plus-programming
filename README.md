@@ -43,6 +43,21 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [Declared constants](/docs/section6.md#declared-constants)
     - [Preprocessor defined constant](/docs/section6.md#preprocessor-defined-constant)
     - [Simple program using declared constants](/docs/section6.md#simple-program-using-declared-constants)
+- [Section7: Arrays and Vectors](/docs/section7.md)
+    - [What is an Array?](/docs/section7.md#what-is-an-array)
+    - [Declaring Arrays](/docs/section7.md#declaring-arrays)
+    - [Accessing array elements](/docs/section7.md#accessing-array-elements)
+    - [Changing array elements](/docs/section7.md#changing-array-elements)
+    - [How does it work?](/docs/section7.md#how-does-it-work)
+    - [Multidimensional arrays](/docs/section7.md#multidimensional-arrays)
+    - [Vectors](/docs/section7.md#vectors)
+    - [What is a vector?](/docs/section7.md#what-is-a-vector)
+    - [Declaring a vector](/docs/section7.md#declaring-a-vector)
+    - [Accessing vector elements - array syntax `[0]`](/docs/section7.md#accessing-vector-elements---array-syntax-0)
+    - [Accessing vector elements - vector syntax `at()`](/docs/section7.md#accessing-vector-elements---vector-syntax-at)  
+    - [Changing the contents of vector elements - vector syntax `at()`](/docs/section7.md#changing-the-contents-of-vector-elements---vector-syntax-at)
+    - [Growing a vector using method `push_back()`](/docs/section7.md#growing-a-vector-using-method-push_back)
+    - [Vector out of bounds checking](/docs/section7.md#vector-out-of-bounds-checking)         
 
 ## References
 
