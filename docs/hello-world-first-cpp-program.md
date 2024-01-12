@@ -44,6 +44,16 @@ Inserts to `cout` a new line, using the namespace `std`, `endl` to output to the
 
 Compile file `main.cpp` to create new file `a.out`
 
+Check your compile version:
+```bash
+$ g++ --version
+
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
 Open terminal and type:
 ```bash
 $ g++ -Wall -std=c++14 main.cpp
