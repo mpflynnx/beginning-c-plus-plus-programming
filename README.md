@@ -57,7 +57,9 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [Accessing vector elements - vector syntax `at()`](/docs/section7.md#accessing-vector-elements---vector-syntax-at)  
     - [Changing the contents of vector elements - vector syntax `at()`](/docs/section7.md#changing-the-contents-of-vector-elements---vector-syntax-at)
     - [Growing a vector using method `push_back()`](/docs/section7.md#growing-a-vector-using-method-push_back)
-    - [Vector out of bounds checking](/docs/section7.md#vector-out-of-bounds-checking)         
+    - [Vector out of bounds checking](/docs/section7.md#vector-out-of-bounds-checking)
+    - [Checking the size of a vector](/docs/section7.md#checking-the-size-of-a-vector)
+    - [Initialising and accessing 2D vectors](/docs/section7.md#initialising-and-accessing-2d-vectors)         
 
 ## References
 

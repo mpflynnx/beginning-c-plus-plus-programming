@@ -24,7 +24,7 @@ double hi_temperatures [days_in_year];
 int test_scores [5] {100,95,92,87,43};
 int high_score_per_level [10] {3,5}; // 0 and 1 indexes initialised, remaining all set to 0.
 
-int test_scores [5] {}; // sames as {0}
+int test_scores [5] {}; // same as {0}
 
 const int days_in_year {365};
 double hi_temperatures [days_in_year] {0};
@@ -102,8 +102,8 @@ If the size of the required array cannot be determined, then there are two optio
 ### Declaring a vector
 
 - Different from an array, as a vector is an Object
-- Included in the vector library
-- vector type is part of the `std` namespace
+- Must include the vector library. `#include <vector>`
+- Must use vector type of the `std` namespace `using std::vector;`
 
 **Declaring vectors using constructor initialisation ()**
 ```c
@@ -209,3 +209,112 @@ cout << "Fifth score at index 4: "
 ```
 
 ### Vector out of bounds checking
+
+- Arrays never do bound checking
+- Many vector methods provide bounds checking
+- An exception and error message is generated
+
+```c
+vector <int> test_scores {100, 98, 89};
+
+test_scores.push_back(85);
+test_scores.push_back(93);
+
+cout << "Fifth score at index 5: " 
+<< test_scores.at(5) << endl; // Invalid
+```
+
+```bash
+Fifth score at index 4: terminate called after throwing an instance of 'std::out_of_range'
+  what():  vector::_M_range_check: __n (which is 5) >= this->size() (which is 5)
+```
+
+### Checking the size of a vector
+
+Check the size of a vector using `size()`
+```c
+vector <int> test_scores {100, 98, 89};
+cout << "There are " << test_scores.size() << " scores in the vector." << endl;
+```
+
+```bash
+There are 3 scores in the vector.
+```
+
+### Initialising and accessing 2D vectors
+
+Initialise a 2D vector as shown. This is a vector of a vector.
+
+```c
+vector <vector<int>> movie_ratings 
+{
+     {1, 2, 3, 4},
+     {1, 2, 4, 4},
+     {1, 3, 4, 5}
+};
+```
+
+Access a 2D vector using `.at()`
+
+```c
+#include <iostream>
+#include <vector>
+
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+     vector <vector<int>> movie_ratings 
+     {
+          {1, 2, 3, 4}, // 0 Row, Reviewer 1
+          {1, 2, 4, 4}, // 1 Row, Reviewer 2
+          {1, 3, 4, 5}  // 2 Row, Reviewer 3
+
+     };
+
+     cout << "\nReviewer 1 scores.\n";
+     cout << movie_ratings.at(0).at(0) << endl;
+     cout << movie_ratings.at(0).at(1) << endl;
+     cout << movie_ratings.at(0).at(2) << endl;
+     cout << movie_ratings.at(0).at(3) << endl;
+
+     cout << "\nReviewer 2 scores.\n";
+     cout << movie_ratings.at(1).at(0) << endl;
+     cout << movie_ratings.at(1).at(1) << endl;
+     cout << movie_ratings.at(1).at(2) << endl;
+     cout << movie_ratings.at(1).at(3) << endl;
+
+     cout << "\nReviewer 3 scores.\n";
+     cout << movie_ratings.at(2).at(0) << endl;
+     cout << movie_ratings.at(2).at(1) << endl;
+     cout << movie_ratings.at(2).at(2) << endl;
+     cout << movie_ratings.at(2).at(3) << endl;
+     
+     return 0;
+}
+```
+
+**Output**
+```bash
+
+Reviewer 1 scores.
+1
+2
+3
+4
+
+Reviewer 2 scores.
+1
+2
+4
+4
+
+Reviewer 3 scores.
+1
+3
+4
+5
+```
