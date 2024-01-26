@@ -59,8 +59,12 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [Growing a vector using method `push_back()`](/docs/section7.md#growing-a-vector-using-method-push_back)
     - [Vector out of bounds checking](/docs/section7.md#vector-out-of-bounds-checking)
     - [Checking the size of a vector](/docs/section7.md#checking-the-size-of-a-vector)
-    - [Initialising and accessing 2D vectors](/docs/section7.md#initialising-and-accessing-2d-vectors)         
-
+    - [Initialising and accessing 2D vectors](/docs/section7.md#initialising-and-accessing-2d-vectors)
+    - [Section7: Challenge](/section7-challenge.txt)
+    - [Section7: My solution](/section7-challenge.cpp)         
+- [Section8: Statements and Operators]()
+    - [Section8: Challenge](/section8-challenge.txt)
+    - [Section8: My solution](/section8-challenge.cpp)
 ## References
 
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)

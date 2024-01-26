@@ -17,7 +17,6 @@ int main()
 	const int quarter {25};
 	const int dime {10};
 	const int nickel {5};
-    const int penny {1};
 
     std::cout << "Enter an amount in cents : ";
     int amount {};
@@ -37,8 +36,7 @@ int main()
     std::cout << "nickels   : " << func(amount, nickel) << '\n';
     amount %= nickel;
 
-    std::cout << "pennies  : " << func(amount, penny) << '\n';
-    amount %= penny;
+    std::cout << "pennies  : " << amount << '\n';
 
 	return 0;
 }
