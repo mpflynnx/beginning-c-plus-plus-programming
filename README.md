@@ -65,6 +65,16 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
 - [Section8: Statements and Operators]()
     - [Section8: Challenge](/section8-challenge.txt)
     - [Section8: My solution](/section8-challenge.cpp)
+- [Section9: Controlling program flow](/docs/section9.md)
+    - [If statement](/docs/section9.md#if-statement)
+    - [If else statement](/docs/section9.md#if-else-statement)
+    - [If else if](/docs/section9.md#if-else-if)
+    - [Nested If statement](/docs/section9.md#nested-if-statement)
+    - [Switch statement](/docs/section9.md#switch-statement)
+    - [Conditional operator](/docs/section9.md#conditional-operator)
+    - [For loop](/docs/section9.md#for-loop)
+    - [Range-based for loop](/docs/section9.md#range-based-for-loop)
+    - [While loop](/docs/section9.md#while-loop)                    
 ## References
 
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)
