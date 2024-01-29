@@ -41,4 +41,3 @@ Ensure your solution works correctly for all the provided examples and considers
 Focus on correctly implementing the do-while loop and the logic for checking each character.
 
 Your solution should be efficient and neatly formatted to maintain readability.
-
