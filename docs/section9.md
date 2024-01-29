@@ -152,7 +152,7 @@ Example code that uses a for loop to calculate the sum of the odd integers from 
 ```c
 int sum {};
 
-for (unsigned i {0}; i <= 15; ++i)
+for (unsigned i {0}; i <= 15; ++i) // Can use ++i, or i++, compiler will optimise for best option
 {
     if ((i % 2) != 0)
         sum += i;
@@ -373,8 +373,9 @@ while (i < 4) {
 56
 ```
 
-Example code validating a user input. Note, the duplicated code outside and inside the loop. This example would be better suited for a [do-while loop](#do-while-loop).
+Example code validating a user input. Note, the duplicated code outside and inside the loop.
 
+**Example**
 ```c
 int number {0};
 std::cout << "Enter an integer less than 100: ";
@@ -396,4 +397,135 @@ Enter an integer less than 100: 3
 Thanks, 3 is a good number.
 ```
 
+Example code validating a user input, using a boolean flag to reduce repeated code. This could be improved using a [do-while loop](#do-while-loop).
+
+**Example**
+```c
+    bool done {false};
+    int number{};
+
+    while (!done){
+        std::cout << "Enter an integer between 1 and 10: ";
+        std::cin >> number;
+        if (number <= 1 || number >= 10 )
+            std::cout << "Out of range, try again." << '\n';
+        else {
+            std::cout << "Good choice!" << '\n';
+            done = true;
+        }
+    }
+```
+**Output**
+```bash
+Enter an integer between 1 and 10: 10
+Out of range, try again.
+Enter an integer between 1 and 10: -8
+Out of range, try again.
+Enter an integer between 1 and 10: 2
+Good choice!
+```
+
 ### do-while loop
+
+If you must run an iteration of a loop at least once then the do-while loop is recommended. 
+
+```c
+do {
+    statements;
+} while (expression);
+```
+
+Example code of a simple menu system using do-while loop and switch statement.
+
+**Example**
+
+```c
+char selection{};
+
+do {
+    std::cout << "\n----------------" << '\n';
+    std::cout << "1. Do this" << '\n';
+    std::cout << "2. Do that" << '\n';
+    std::cout << "3. Do the other" << '\n';
+    std::cout << "Press (q)uit to quit." << '\n';
+    std::cout << "\nEnter your selection: ";
+    std::cin >> selection;
+
+    switch (selection) {
+        case '1':
+            std::cout << "\nDoing this\n";
+            break;
+        case '2':
+            std::cout << "\nDoing that\n";
+            break;
+        case '3':
+            std::cout << "\nDoing the other\n";
+            break;
+        case 'q':
+            std::cout << "\nQuitting the program.\n";
+            break;
+        case 'Q':
+            std::cout << "\nQuitting the program.\n";
+            break;
+        default:
+            std::cout << "\nError - illegal option.\n";
+    }
+
+} while (selection != 'q' && selection != 'Q');
+```
+
+**Output**
+
+```bash
+
+----------------
+1. Do this
+2. Do that
+3. Do the other
+Press (q)uit to quit.
+
+Enter your selection: 1
+
+Doing this
+
+----------------
+1. Do this
+2. Do that
+3. Do the other
+Press (q)uit to quit.
+
+Enter your selection: 2
+
+Doing that
+
+----------------
+1. Do this
+2. Do that
+3. Do the other
+Press (q)uit to quit.
+
+Enter your selection: 3
+
+Doing the other
+
+----------------
+1. Do this
+2. Do that
+3. Do the other
+Press (q)uit to quit.
+
+Enter your selection: 4
+
+Error - illegal option.
+
+----------------
+1. Do this
+2. Do that
+3. Do the other
+Press (q)uit to quit.
+
+Enter your selection: q
+
+Quitting the program.
+
+```

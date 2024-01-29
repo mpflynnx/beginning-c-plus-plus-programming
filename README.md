@@ -74,7 +74,10 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [Conditional operator](/docs/section9.md#conditional-operator)
     - [For loop](/docs/section9.md#for-loop)
     - [Range-based for loop](/docs/section9.md#range-based-for-loop)
-    - [While loop](/docs/section9.md#while-loop)                    
+    - [While loop](/docs/section9.md#while-loop)
+    - [While loop exercise](/exercises/section9/While%20loop%20exercise/instructions.md) 
+    - [Do-while loop](/docs/section9.md#do-while-loop)
+    - [Do-while loop exercise](/exercises/section9/do-while%20loop%20exercise/instructions.md)                   
 ## References
 
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)
