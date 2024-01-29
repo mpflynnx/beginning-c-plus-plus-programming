@@ -1,17 +1,22 @@
 #include <iostream>
+#include <vector>
 
 int main()
 {
-    int number {0};
-    std::cout << "Enter an integer less than 100: ";
-    std::cin >> number;
 
-    while (number >= 100){
-        std::cout << "Enter an integer less than 100: ";
-        std::cin >> number;
+    for (int num1 {1}; num1 <=10; ++num1){
+        for (int num2 {1}; num2 <=10; ++num2){
+            std::cout << num1 
+                    << " * " 
+                    << num2 
+                    << "   = " 
+                    << num1 * num2 
+                    << '\n';
+        }
+        std::cout << "---------------" << '\n';
     }
 
-    std::cout << "Thanks, " << number << " is a good number.";
+    std::cout << '\n';
     
     return 0;
 }

@@ -529,3 +529,162 @@ Enter your selection: q
 Quitting the program.
 
 ```
+
+### continue and break keywords
+
+- continue keyword
+    - no further statements in the body of the loop are executed
+    - control immediately goes directly to the beginning of the loop for the next iteration
+
+- break keyword
+    - no further statements in the body of the loop are executed
+    - loop is immediately terminated
+    - control immediately goes to the statement following the loop construct
+
+In the example code, a vector is looped and its index values printed (unless its value is -1) the loop continues until a value of -99 is seen in the vector, then the loop terminates.
+
+**Example**
+
+```c
+std::vector<int> vec {1,2,-1,3,-1,-99,7,8,9};
+
+for (auto num : vec) {
+    if (num == -99) 
+        break; // terminate at -99
+    else if (num == -1)
+        continue; // jump to start of loop
+    else    
+        std::cout << num << '\n'; // doesn't print -1
+}     
+```
+**Output**
+```bash
+1
+2
+3
+```
+
+**Note** try not to use continue and break too much as it can lead to complex code that may be hard to understand.
+
+### Infinite loops
+
+- Loops whose condition expression always evaluates to true
+- Usually this is unintended and a programmer error
+- Can be used with break statements to control an infinite loop (bad practice)
+- Sometimes infinite loops are exactly what is needed
+    - Event loop in an event-driven program
+    - Operating system
+
+**Examples of infinite loops**
+```c
+for (;;)
+    std::cout << "This will printed forever\n";
+
+while (true)
+    std::cout << "This will printed forever\n";
+
+do {
+    std::cout << "This will printed forever\n";
+} while (true);
+```
+Example code of looping until an expected response is given from the user.
+
+**Example**
+
+```c
+while (true) {
+    char again {};
+    std::cout << "Loop again? (Y/N): ";
+    std::cin >> again;
+
+    if (again == 'N' || again == 'n')
+        break;
+}
+std::cout << "\nLoop terminated.\n";
+```
+
+**Output**
+```bash
+Loop again? (Y/N): y
+Loop again? (Y/N): y
+Loop again? (Y/N): y
+Loop again? (Y/N): n
+
+Loop terminated.
+```
+
+**Note** this code is not best practice. The loop should be more informative as to when the loop iterates. 
+
+### Nested loops
+
+- Loops nested are loops within another loop
+- Can be many as many level deep as the program needs
+- Very useful with multi-dimensional data structures
+- Outer loop verses inner loop (inner loops loop faster)
+
+In the example code, we have two loops which will display the multiplication tables up to 10.
+**Example**
+```c
+for (int num1 {1}; num1 <=10; ++num1){
+    for (int num2 {1}; num2 <=10; ++num2){
+        std::cout << num1 
+                << " * " 
+                << num2 
+                << "   = " 
+                << num1 * num2 
+                << '\n';
+    }
+    std::cout << "---------------" << '\n';
+}
+```
+**Output**
+```bash
+1 * 1   = 1
+1 * 2   = 2
+1 * 3   = 3
+1 * 4   = 4
+1 * 5   = 5
+1 * 6   = 6
+1 * 7   = 7
+1 * 8   = 8
+1 * 9   = 9
+1 * 10   = 10
+---------------
+2 * 1   = 2
+2 * 2   = 4
+2 * 3   = 6
+2 * 4   = 8
+2 * 5   = 10
+2 * 6   = 12
+2 * 7   = 14
+2 * 8   = 16
+2 * 9   = 18
+2 * 10   = 20
+---------------
+
+...
+...
+
+9 * 1   = 9
+9 * 2   = 18
+9 * 3   = 27
+9 * 4   = 36
+9 * 5   = 45
+9 * 6   = 54
+9 * 7   = 63
+9 * 8   = 72
+9 * 9   = 81
+9 * 10   = 90
+---------------
+10 * 1   = 10
+10 * 2   = 20
+10 * 3   = 30
+10 * 4   = 40
+10 * 5   = 50
+10 * 6   = 60
+10 * 7   = 70
+10 * 8   = 80
+10 * 9   = 90
+10 * 10   = 100
+---------------
+```

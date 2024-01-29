@@ -77,7 +77,11 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
     - [While loop](/docs/section9.md#while-loop)
     - [While loop exercise](/exercises/section9/While%20loop%20exercise/instructions.md) 
     - [Do-while loop](/docs/section9.md#do-while-loop)
-    - [Do-while loop exercise](/exercises/section9/do-while%20loop%20exercise/instructions.md)                   
+    - [Do-while loop exercise](/exercises/section9/do-while%20loop%20exercise/instructions.md) 
+    - [continue and break keywords](/docs/section9.md#continue-and-break-keywords)
+    - [Infinite loops](/docs/section9.md#infinite-loops)
+    - [Nested loops](/docs/section9.md#nested-loops)
+    - [Nested loop exercise](/exercises/section9/nested%20loop%20exercise/instructions.md)                 
 ## References
 
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)
