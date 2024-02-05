@@ -1,5 +1,29 @@
 ## Section 9: Controlling program flow
 
+## Table of Contents
+- [If statement](/docs/section9.md#if-statement)
+- [If else statement](/docs/section9.md#if-else-statement)
+- [If else if](/docs/section9.md#if-else-if)
+- [Nested If statement](/docs/section9.md#nested-if-statement)
+- [Switch statement](/docs/section9.md#switch-statement)
+- [Conditional operator](/docs/section9.md#conditional-operator)
+- [For loop](/docs/section9.md#for-loop)
+- [Range-based for loop](/docs/section9.md#range-based-for-loop)
+- [While loop](/docs/section9.md#while-loop)
+- [While loop exercise](/exercises/section9/While%20loop%20exercise/instructions.md)
+- [While loop exercise (my solution)](/exercises/section9/While%20loop%20exercise/main.cpp)  
+- [Do-while loop](/docs/section9.md#do-while-loop)
+- [Do-while loop exercise](/exercises/section9/do-while%20loop%20exercise/instructions.md)
+- [Do-while loop exercise (my solution)](/exercises/section9/do-while%20loop%20exercise/main.cpp) 
+- [continue and break keywords](/docs/section9.md#continue-and-break-keywords)
+- [Infinite loops](/docs/section9.md#infinite-loops)
+- [Nested loops](/docs/section9.md#nested-loops)
+- [Nested loop exercise](/exercises/section9/nested%20loop%20exercise/instructions.md)
+- [Nested loop exercise (my solution)](/exercises/section9/nested%20loop%20exercise/main.cpp)
+- [Section9: Challenge](/challenges/section9/section9-challenge/section9-challenge.txt)
+- [Section9: Challenge (my solution)](/challenges/section9/section9-challenge/main.cpp)
+
+
 ### If statement
 
 **Example**
