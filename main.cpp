@@ -1,14 +1,13 @@
-#include <cstring>
+#include <string>
 #include <iostream>
 
 int main()
 {
 
-    char full_name[50];
-    std::cout << "Enter your full name: ";
-    std::cin.getline(full_name, 50);
+    std::string s1 {"This is a test"};
 
-    std::cout << full_name << '\n';
+    s1 += ". Honest." ;    
+    std::cout << s1 << '\n'; // This is a test. Honest.
 
     return 0;
 }
