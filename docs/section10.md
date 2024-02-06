@@ -9,14 +9,14 @@
     - [std::cin functions](#stdcin-functions)
 - [C++ Strings](#c-strings)
     - [Declaring and initialising](#declaring-and-initialising)
-    - [Assignment](#assignment)
-    - [Concatenation](#concatenation)
+    - [String assignment](#string-assignment)
+    - [String concatenation](#string-concatenation)
     - [Accessing characters](#accessing-characters)
     - [Comparing strings](#comparing-strings)
-    - [Substrings - substr()](#substrings---substr)
-    - [Searching - find()](#searching---find)
-    - [Removing - erase() and clear()](#removing---erase-and-clear)
-    - [Find number of characters in string](#find-number-of-characters-in-string)
+    - [Return substring from a string - substr()](#return-substring-from-a-string---substr)
+    - [Searching for a string inside a string - find()](#searching-for-a-string-inside-a-string---find)
+    - [Removing a substring - erase() and clear()](#removing-a-substring---erase-and-clear)
+    - [Length of string - length() size()](#length-of-string---length-size)
     - [Compound concatenation operator =+](#compound-concatenation-operator)
 
 
@@ -78,8 +78,7 @@ To convert null-terminated strings to other types, header [cstdlib](https://en.c
 
 ### std::cin functions
 
-
-`std::cin` contains a function called [getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline). getline reads characters from an input stream and places them into a string, it ignores spaces in the input stream.
+`std::cin` contains a function called [getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline). getline() reads characters from an input stream and places them into a string, it ignores white spaces in the input stream. 
 
 **Example**
 ```c
@@ -102,6 +101,7 @@ int main()
 ### C++ Strings
 
 - std::string is a Class in the Standard Template Library (STL)
+- Many [member functions](https://en.cppreference.com/w/cpp/string/basic_string) exist 
 
 ```c
 #include <string>
@@ -131,25 +131,28 @@ std::string s4 {"Frank", 3}; // Fra
 std::string s5 {s3, 0, 2}; // Fr, 0 is start index, 2 is length
 std::string s6 (3, 'X'); // XXX, constructor syntax
 ```
+`std::string` is a class, s1 to s6 are objects. The above shows instantiation, i.e creating an instance of a class, which are known as an objects in Object Orientated Programming (OOP).
 
-#### Assignment
+#### String assignment
 
 ```c
-
 std::string s1;
 s1 = "C++ Rocks!"; // s1 grows dynamically as needed
 
-std::string s2 {"Hello World!}; 
+std::string s2 {"Hello World!"}; 
 s2 = s1; // Copies s1 into s2;
+
+s1.at(9) = '?'; // replace ! with ? at index 9
+std::cout << s1 << '\n'; // C++ Rocks?
 ```
 
-#### Concatenation
+#### String concatenation
 
 ```c
 std::string part1 {"C++"};
 std::string part2 {"is a powerful"};
 
-std::string sentence;
+std::string sentence; // dynamic in size
 
 sentence = part1 + " " + part2 + " language";
 ```
@@ -163,13 +166,14 @@ std::string s2 {"Frank"};
 std::cout << s2[0] << '\n'; // output: F
 ```
 
-.at() performs bounds checking (recommended)
+`at()` performs bounds checking (recommended)
 
 ```c
 std::string s2 {"Frank"};
 std::cout << s2.at(0) << '\n'; // output: F 
 ```
 
+**Range-based loop example**
 Accessing string characters using a range-based for loop.
 ```c
 std::string s1 {"Frank"};
@@ -203,21 +207,64 @@ for (int c: s1) // int type not char type
 0 // null character is not printable so will not appear here
 ```
 
-#### Comparing strings
-
-Can use operators ==, !=, >, >=, <, <= on C+=+ strings, but no C-style strings, unless comparing a C++ string to a C-style string
-
-Object are compared character by character lexically. A is less than Z. A less than a. Capital letters first in ASCII table.
+**for loop example**
+Accessing string characters using a for loop. `size_t` is a unsigned integer and is the preferred type for this use case. `length()` returns type `size_t`. Also, `std::string` will never have a negative index, so using `int` type is not recommended.
 
 ```c
-string s1 {"Apple"}; // C++ string
+#include <iostream>
 
-s1 == "Apple"; // Returns true, "Apple" is a C-style string literal, and can be used in this case.
+int main()
+{
+
+    std::string s1 {"Frank"};
+
+    for (size_t i {0}; i < s1.length(); ++i){
+        std::cout << s1.at(i) << '\n';
+    }
+
+    return 0;
+}
 ```
 
-#### Substrings - substr()
 
-[substr()](https://en.cppreference.com/w/cpp/string/basic_string/substr) extracts a substring from a C++ string.
+#### Comparing strings
+
+Can use operators ==, !=, >, >=, <, <= on C++ strings, but not with C-style strings, unless comparing a C++ string to a C-style string.
+
+Objects are compared character by character lexically. A is less than Z. A less than a. Capital letters first in ASCII table.
+
+Comparison of C++ string with a C-style string literal.
+
+```c
+std::string s1 {"Apple"}; // C++ string
+
+s1 == "Apple"; // Returns true, "Apple" is a C-style string literal, and can be used in this case with == operator.
+```
+
+Comparison of C++ string with a string literal. Uses [`std::boolalpha`](https://en.cppreference.com/w/cpp/io/manip/boolalpha) to toggle result as true or false.
+
+```c
+#include <string>
+#include <iostream>
+#include <sstream> // needed for std::boolalpha
+
+int main()
+{
+
+    std::string s1 {"Apple"}; // C++ string
+    std::cout << std::boolalpha;
+    
+    std::cout << s1 << " == " 
+              << "Apple" << " : " 
+              << (s1 == "Apple") << '\n'; // true
+
+    return 0;
+}
+```
+
+#### Return substring from a string - substr()
+
+[substr()](https://en.cppreference.com/w/cpp/string/basic_string/substr) returns a substring from a C++ string.
 
 ```c
 std::string s1 {"This is a test"};
@@ -227,7 +274,7 @@ std::cout << s1.substr(5,2); // is
 std::cout << s1.substr(0,4); // test
 ```
 
-#### Searching - find()
+#### Searching for a string inside a string - find()
 [find()](https://en.cppreference.com/w/cpp/string/basic_string/find) returns the start index of a substring.
 
 ```c
@@ -246,7 +293,7 @@ if (s1.find("XXX") == s1.npos)
     std::cout << "no 'XXX' in 's1'\n";
 ```
 
-#### Removing - erase() and clear()
+#### Removing a substring - erase() and clear()
 
 Removing a substring of characters using [erase()](https://en.cppreference.com/w/cpp/string/basic_string/erase) or [clear()](https://en.cppreference.com/w/cpp/string/basic_string/clear)
 
@@ -262,9 +309,9 @@ s1.clear(); // empties string s1
 std::cout << s1 << '\n'; // s1 == ""
 ```
 
-#### Find number of characters in string
+#### Length of string - length() size()
 
-Find the legth of a string using [size / length](https://en.cppreference.com/w/cpp/string/basic_string/size) functions.
+Find the length of a string using [size / length](https://en.cppreference.com/w/cpp/string/basic_string/size) functions.
 
 ```c
 std::string s1 {"This is a test"};
@@ -287,12 +334,35 @@ s1 += ". Honest." ;
 std::cout << s1 << '\n'; // This is a test. Honest.
 ```
 
+#### std::cin, >> and getline()
+```c
+std::string s1;
+std::cin >> s1;
+```
+The above code will only extract the text from the input up to the first whitespace (space). To read the entire user input upto the new line character `'\n'` (i.e user pressing enter key), including spaces we can use [`getline()`](https://en.cppreference.com/w/cpp/string/basic_string/getline)
+
+```c
+std::string s1;
+getline(std::cin, s1);
+```
+
+Use a delimiter to extract characters until the given character (delimiter) is found.
+
+```c
+std::string s1;
+getline(std::cin, s1, ','); // user input: data1, data2, data3
+std::cout << s1; // s1 == "data1"
+```
+
 ## References
-[Character functions using `<cctype>`](https://en.cppreference.com/w/cpp/string/byte#Functions)
-[null-terminated byte strings library](https://en.cppreference.com/w/cpp/string/byte)
-[C-style functions header `<cstring>`](https://en.cppreference.com/w/cpp/header/cstring)
-[Standard library header `<cstdlib>`](https://en.cppreference.com/w/cpp/header/cstdlib)
-[cin.getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
-[Why is strcat unsafe?](https://stackoverflow.com/questions/936468/why-does-msvc-consider-stdstrcat-to-be-unsafe-c)
-[C++ string member functions](https://en.cppreference.com/w/cpp/string/basic_string)
-[C++ string operation functions](https://en.cppreference.com/w/cpp/string/basic_string#Operations)
+- [Character functions using `<cctype>`](https://en.cppreference.com/w/cpp/string/byte#Functions)
+- [null-terminated byte strings library](https://en.cppreference.com/w/cpp/string/byte)
+- [C-style string functions `<cstring>`](https://en.cppreference.com/w/cpp/header/cstring)
+- [C miscellaneous utilities `<cstdlib>`](https://en.cppreference.com/w/cpp/header/cstdlib)
+- [cin.getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
+- [Why is strcat unsafe?](https://stackoverflow.com/questions/936468/why-does-msvc-consider-stdstrcat-to-be-unsafe-c)
+- [size_t type](https://en.cppreference.com/w/cpp/types/size_t)
+- [C++ string member functions](https://en.cppreference.com/w/cpp/string/basic_string)
+- [C++ string operation functions](https://en.cppreference.com/w/cpp/string/basic_string#Operations)
+- [std::basic_string_view](https://en.cppreference.com/w/cpp/string/basic_string_view)
+- [std::getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
