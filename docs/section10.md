@@ -18,6 +18,7 @@
     - [Removing a substring - erase() and clear()](#removing-a-substring---erase-and-clear)
     - [Length of string - length() size()](#length-of-string---length-size)
     - [Compound concatenation operator =+](#compound-concatenation-operator)
+    - [std::cin >> and getline()](#stdcin--and-getline)
     - [Insert characters into the string - insert()](#insert-characters-into-the-string---insert)
     - [Exchange the contents of the string with other - swap()](#exchange-the-contents-of-the-string-with-other---swap)
     - [Using C++ Strings exercise1](/exercises/section10/using-cpp-strings-exercise1/instructions.md)
@@ -216,6 +217,7 @@ for (int c: s1) // int type not char type
 ```
 
 **for loop example**
+
 Accessing string characters using a for loop. `size_t` is a unsigned integer and is the preferred type for this use case. `length()` returns type `size_t`. Also, `std::string` will never have a negative index, so using `int` type is not recommended.
 
 ```c
@@ -342,7 +344,7 @@ s1 += ". Honest." ;
 std::cout << s1 << '\n'; // This is a test. Honest.
 ```
 
-#### std::cin, >> and getline()
+#### std::cin >> and getline()
 ```c
 std::string s1;
 std::cin >> s1;
