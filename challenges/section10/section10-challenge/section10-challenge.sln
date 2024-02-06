@@ -7,6 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "section10-challenge", "sect
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1337DD6C-A8ED-48B0-B4C5-F04F199892F1}"
 	ProjectSection(SolutionItems) = preProject
+		instructors-solution.txt = instructors-solution.txt
 		section10-challenge.md = section10-challenge.md
 	EndProjectSection
 EndProject

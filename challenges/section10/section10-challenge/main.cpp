@@ -15,7 +15,6 @@ int main() {
     for (size_t i{ 0 }; i < rawMessage.length(); ++i) { // loop rawMessage chars
         if (alphabet.find(rawMessage.at(i)) == alphabet.npos) { // ignore char if not in alphabet
             encryptedMessage += rawMessage.at(i); // append char to encrypted message using +=
-            continue; // continue looping
         }
         else
             encryptedMessage += key.at(alphabet.find(rawMessage.at(i))); // append key char to encyptedMessage
@@ -28,7 +27,6 @@ int main() {
     for (size_t i{ 0 }; i < encryptedMessage.length(); ++i) { // loop encryptedMessage chars
         if (key.find(encryptedMessage.at(i)) == key.npos) { // ignore char if not in key
             decryptedMessage += encryptedMessage.at(i); // append char to decryptedMessage using +=
-            continue; // continue looping
         }
         else
             decryptedMessage += alphabet.at(key.find(encryptedMessage.at(i))); // append alphabet char to decyptedMessage
