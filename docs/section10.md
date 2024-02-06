@@ -7,8 +7,6 @@
     - [Using C-style Strings exercise](/exercises/section10/Using%20C-style%20Strings%20Exercise/instructions.md)
     - [Using C-style Strings exercise (my solution)](/exercises/section10/Using%20C-style%20Strings%20Exercise/main.cpp)
     - [std::cin functions](#stdcin-functions)
-
-
 - [C++ Strings](#c-strings)
     - [Declaring and initialising](#declaring-and-initialising)
     - [String assignment](#string-assignment)
@@ -26,6 +24,8 @@
     - [Using C++ Strings exercise1 (my solution)](/exercises/section10/using-cpp-strings-exercise1/main.cpp)
     - [Using C++ Strings exercise2](/exercises/section10/using-cpp-strings-exercise2/instructions.md)
     - [Using C++ Strings exercise2 (my solution)](/exercises/section10/using-cpp-strings-exercise2/main.cpp)
+    - [Section10: Challenge](/challenges/section10/section10-challenge/section10-challenge.md)
+    - [Section10: Challenge (my solution)](/challenges/section10/section10-challenge/main.cpp)
 
 
 ### Character functions

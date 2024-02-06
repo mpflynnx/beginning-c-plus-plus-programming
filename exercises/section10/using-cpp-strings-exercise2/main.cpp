@@ -11,8 +11,8 @@ int main()
     journal_entry_1.erase(0, 6);
 
     // The journal entries should be sorted alphabetically based on the authors last name
-    if (journal_entry_2 < journal_entry_1) {
-        journal_entry_1.swap(journal_entry_2);
+    if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
+        journal_entry_1.swap(journal_entry_2); // swap
     }
 
     std::cout << journal_entry_1 << "\n" << journal_entry_2; // Leibniz '\n' Newton
