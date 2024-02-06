@@ -1,12 +1,19 @@
+#include <cstring>
 #include <iostream>
+#include <string>
 
 int main()
 {
 
-std::string unformatted_full_name {"StephenHawking"};
-unformatted_full_name.insert(7, " ");
-                
-std::cout << unformatted_full_name << '\n'; // Stephen Hawking
+    char full_name[50];
+
+    // std::string full_name;
+    std::cout << "Enter your full name: ";
+    std::cin.getline(full_name, 50);
+
+    // getline(std::cin, full_name);
+
+    std::cout << full_name << '\n';
 
     return 0;
 }

@@ -21,6 +21,7 @@
     - [Length of string - length() size()](#length-of-string---length-size)
     - [Compound concatenation operator =+](#compound-concatenation-operator)
     - [Insert characters into the string - insert()](#insert-characters-into-the-string---insert)
+    - [Exchange the contents of the string with other - swap()](#exchange-the-contents-of-the-string-with-other---swap)
     - [Using C++ Strings exercise1](/exercises/section10/using-cpp-strings-exercise1/instructions.md)
     - [Using C++ Strings exercise1 (my solution)](/exercises/section10/using-cpp-strings-exercise1/main.cpp)
     - [Using C++ Strings exercise2](/exercises/section10/using-cpp-strings-exercise2/instructions.md)
@@ -97,7 +98,7 @@ int main()
 
     char full_name[50];
     std::cout << "Enter your full name: ";
-    std::cin.getline(full_name, 50);
+    std::cin.getline(full_name, 50); // store at char[], 50 char limit
 
     std::cout << full_name << '\n';
 
@@ -348,6 +349,8 @@ std::cin >> s1;
 ```
 The above code will only extract the text from the input up to the first whitespace (space). To read the entire user input upto the new line character `'\n'` (i.e user pressing enter key), including spaces we can use [`getline()`](https://en.cppreference.com/w/cpp/string/basic_string/getline)
 
+**Note:** Doesn't work with char s1[50] C-style, s1 must be std::string object.
+
 ```c
 std::string s1;
 getline(std::cin, s1);
@@ -374,6 +377,16 @@ unformatted_full_name.insert(7, 1, ' '); // insert 1 char ' ' at index 7
 std::cout << unformatted_full_name << '\n'; // Stephen Hawking
 ```
 
+#### Exchange the contents of the string with other - swap()
+```c
+std::string journal_entry_1{ "Newton" };
+std::string journal_entry_2{ "Leibniz" };
+
+if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
+    journal_entry_1.swap(journal_entry_2); // swap
+}
+```
+
 ## References
 - [Character functions using `<cctype>`](https://en.cppreference.com/w/cpp/string/byte#Functions)
 - [null-terminated byte strings library](https://en.cppreference.com/w/cpp/string/byte)
@@ -387,3 +400,4 @@ std::cout << unformatted_full_name << '\n'; // Stephen Hawking
 - [std::basic_string_view](https://en.cppreference.com/w/cpp/string/basic_string_view)
 - [getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
 - [insert()](https://en.cppreference.com/w/cpp/string/basic_string/insert)
+- [swap()](https://en.cppreference.com/w/cpp/string/basic_string/swap)
