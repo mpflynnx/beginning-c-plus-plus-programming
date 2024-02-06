@@ -7,6 +7,8 @@
     - [Using C-style Strings exercise](/exercises/section10/Using%20C-style%20Strings%20Exercise/instructions.md)
     - [Using C-style Strings exercise (my solution)](/exercises/section10/Using%20C-style%20Strings%20Exercise/main.cpp)
     - [std::cin functions](#stdcin-functions)
+
+
 - [C++ Strings](#c-strings)
     - [Declaring and initialising](#declaring-and-initialising)
     - [String assignment](#string-assignment)
@@ -18,6 +20,11 @@
     - [Removing a substring - erase() and clear()](#removing-a-substring---erase-and-clear)
     - [Length of string - length() size()](#length-of-string---length-size)
     - [Compound concatenation operator =+](#compound-concatenation-operator)
+    - [Insert characters into the string - insert()](#insert-characters-into-the-string---insert)
+    - [Using C++ Strings exercise1](/exercises/section10/using-cpp-strings-exercise1/instructions.md)
+    - [Using C++ Strings exercise1 (my solution)](/exercises/section10/using-cpp-strings-exercise1/main.cpp)
+    - [Using C++ Strings exercise2](/exercises/section10/using-cpp-strings-exercise2/instructions.md)
+    - [Using C++ Strings exercise2 (my solution)](/exercises/section10/using-cpp-strings-exercise2/main.cpp)
 
 
 ### Character functions
@@ -354,6 +361,19 @@ getline(std::cin, s1, ','); // user input: data1, data2, data3
 std::cout << s1; // s1 == "data1"
 ```
 
+#### Insert characters into the string - insert()
+
+```c
+std::string unformatted_full_name {"StephenHawking"};
+
+unformatted_full_name.insert(7, " "); // insert string " " at index 7
+
+// alternative to above, using char ` ` not string literal " "
+unformatted_full_name.insert(7, 1, ' '); // insert 1 char ' ' at index 7
+
+std::cout << unformatted_full_name << '\n'; // Stephen Hawking
+```
+
 ## References
 - [Character functions using `<cctype>`](https://en.cppreference.com/w/cpp/string/byte#Functions)
 - [null-terminated byte strings library](https://en.cppreference.com/w/cpp/string/byte)
@@ -365,4 +385,5 @@ std::cout << s1; // s1 == "data1"
 - [C++ string member functions](https://en.cppreference.com/w/cpp/string/basic_string)
 - [C++ string operation functions](https://en.cppreference.com/w/cpp/string/basic_string#Operations)
 - [std::basic_string_view](https://en.cppreference.com/w/cpp/string/basic_string_view)
-- [std::getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
+- [getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
+- [insert()](https://en.cppreference.com/w/cpp/string/basic_string/insert)
