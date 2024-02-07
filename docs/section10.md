@@ -18,7 +18,7 @@
     - [Removing a substring - erase() and clear()](#removing-a-substring---erase-and-clear)
     - [Length of string - length() size()](#length-of-string---length-size)
     - [Compound concatenation operator =+](#compound-concatenation-operator)
-    - [std::cin >> and getline()](#stdcin--and-getline)
+    - [std::cin >> and std::getline()](#stdcin--and-stdgetline)
     - [Insert characters into the string - insert()](#insert-characters-into-the-string---insert)
     - [Exchange the contents of the string with other - swap()](#exchange-the-contents-of-the-string-with-other---swap)
     - [Using C++ Strings exercise1](/exercises/section10/using-cpp-strings-exercise1/instructions.md)
@@ -27,7 +27,7 @@
     - [Using C++ Strings exercise2 (my solution)](/exercises/section10/using-cpp-strings-exercise2/main.cpp)
     - [Section10: Challenge](/challenges/section10/section10-challenge/section10-challenge.md)
     - [Section10: Challenge (my solution)](/challenges/section10/section10-challenge/main.cpp)
-    - [External References](#external-references)
+- [External References](#external-references)
 
 
 ### Character functions
