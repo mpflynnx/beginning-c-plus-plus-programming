@@ -27,6 +27,7 @@
     - [Using C++ Strings exercise2 (my solution)](/exercises/section10/using-cpp-strings-exercise2/main.cpp)
     - [Section10: Challenge](/challenges/section10/section10-challenge/section10-challenge.md)
     - [Section10: Challenge (my solution)](/challenges/section10/section10-challenge/main.cpp)
+    - [External References](#external-references)
 
 
 ### Character functions
@@ -344,7 +345,7 @@ s1 += ". Honest." ;
 std::cout << s1 << '\n'; // This is a test. Honest.
 ```
 
-#### std::cin >> and getline()
+#### std::cin >> and std::getline()
 ```c
 std::string s1;
 std::cin >> s1;
@@ -355,16 +356,20 @@ The above code will only extract the text from the input up to the first whitesp
 
 ```c
 std::string s1;
-getline(std::cin, s1);
+std::getline(std::cin >> std::ws, s1);
+
 ```
 
 Use a delimiter to extract characters until the given character (delimiter) is found.
 
 ```c
 std::string s1;
-getline(std::cin, s1, ','); // user input: data1, data2, data3
+std::getline(std::cin >> std::ws, s1, ','); // user input: data1, data2, data3
 std::cout << s1; // s1 == "data1"
 ```
+
+**Best practice**[<sup>[1]</sup>](#external-references)
+If using std::getline() to read strings, use std::cin >> std::ws input manipulator to ignore leading whitespace. This needs to be done for each std::getline() call, as std::ws is not preserved across calls.
 
 #### Insert characters into the string - insert()
 
@@ -389,7 +394,7 @@ if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
 }
 ```
 
-## References
+## External References
 - [Character functions using `<cctype>`](https://en.cppreference.com/w/cpp/string/byte#Functions)
 - [null-terminated byte strings library](https://en.cppreference.com/w/cpp/string/byte)
 - [C-style string functions `<cstring>`](https://en.cppreference.com/w/cpp/header/cstring)
@@ -403,3 +408,4 @@ if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
 - [getline()](https://en.cppreference.com/w/cpp/string/basic_string/getline)
 - [insert()](https://en.cppreference.com/w/cpp/string/basic_string/insert)
 - [swap()](https://en.cppreference.com/w/cpp/string/basic_string/swap)
+- [learncpp.com - Introduction to std::string](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)<sup>[1]</sup>

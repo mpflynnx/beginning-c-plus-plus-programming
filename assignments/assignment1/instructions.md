@@ -1,5 +1,6 @@
 ## Assignment 1 - Letter pyramid instructions
 
+
 Write a C++ program that displays a Letter Pyramid from a user-provided std::string.
 
 Prompt the user to enter a std::string and then from that string display a Letter Pyramid as follows:
@@ -17,7 +18,7 @@ ABCBA
 If the user enters the string, "12345", then your program should display:
 
  
- ```bash
+```bash
     1                                                                                                                  
    121                                                                                                                 
   12321                                                                                                                
@@ -27,7 +28,7 @@ If the user enters the string, "12345", then your program should display:
 
 If the user enters 'ABCDEFG', then your program should display:
 
- ```bash
+```bash
 
       A                                                                                                                
      ABA                                                                                                               
@@ -100,3 +101,5 @@ Which C++ loop(s) did you use and why?
 How did you handle displaying the leading spaces in each row of the pyramid?
 
 Now that you completed the assignment, how might approach the problem differently if you had to solve it again?
+
+[Udemy Assignment Q&A](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/practice/1047668#questions/12997232)
