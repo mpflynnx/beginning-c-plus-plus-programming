@@ -1,5 +1,29 @@
 ## Section6: Variables and Constants
 
+## Table of Contents
+- [Naming variables](/docs/section6.md#naming-variables)
+- [Variable naming style and best practice](/docs/section6.md#variable-naming-style-and-best-practice)
+- [Example program using int type variables](/docs/section6.md#example-program-using-int-type-variables)
+- [Global variables](/docs/section6.md#global-variables)
+- [Built-in Primitive Types](/docs/section6.md#built-in-primitive-types)
+- [Types sizes](/docs/section6.md#types-sizes)
+- [Character Types](/docs/section6.md#character-types)
+- [Integer Types](/docs/section6.md#integer-types)
+- [Floating-point Types](/docs/section6.md#floating-point-types)
+- [Boolean Type](/docs/section6.md#boolean-type)
+- [Overflow examples](/docs/section6.md#overflow-examples)
+- [sizeof operator](/docs/section6.md#sizeof-operator)
+- [Example usage of `sizeof` for integrals](/docs/section6.md#example-usage-of-sizeof-for-integrals)
+- [Example usage of `sizeof` for floats](/docs/section6.md#example-usage-of-sizeof-for-floats)
+- [Example usage of `<climits>` _MIN constants](/docs/section6.md#example-usage-of-climits-_min-constants)
+- [Example usage of `<climits>` _MAX constants](/docs/section6.md#example-usage-of-climits-_max-constants)
+- [Example usage of `sizeof` with variable names](/docs/section6.md#example-usage-of-sizeof-with-variable-names)
+- [What is a constant?](/docs/section6.md#what-is-a-constant)
+- [Literal constant examples](/docs/section6.md#literal-constant-examples)
+- [Declared constants](/docs/section6.md#declared-constants)
+- [Preprocessor defined constant](/docs/section6.md#preprocessor-defined-constant)
+- [Simple program using declared constants](/docs/section6.md#simple-program-using-declared-constants)
+
 ### Declaring and initialising variables
 
 ### Naming variables

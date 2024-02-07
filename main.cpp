@@ -1,22 +1,19 @@
+#include <cstring>
 #include <iostream>
-#include <vector>
+#include <string>
 
 int main()
 {
 
-    for (int num1 {1}; num1 <=10; ++num1){
-        for (int num2 {1}; num2 <=10; ++num2){
-            std::cout << num1 
-                    << " * " 
-                    << num2 
-                    << "   = " 
-                    << num1 * num2 
-                    << '\n';
-        }
-        std::cout << "---------------" << '\n';
-    }
+    char full_name[50];
 
-    std::cout << '\n';
-    
+    // std::string full_name;
+    std::cout << "Enter your full name: ";
+    std::cin.getline(full_name, 50);
+
+    // getline(std::cin, full_name);
+
+    std::cout << full_name << '\n';
+
     return 0;
 }
