@@ -24,4 +24,5 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
 - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 - [Fundamental types](https://en.cppreference.com/w/cpp/language/types)
 - [clangd is a language server that can work with many editors via a plugin.](https://clangd.llvm.org/)
+- [Microsoft C++, C, and Assembler documentation](https://learn.microsoft.com/en-us/cpp/?view=msvc-170)
 
