@@ -31,6 +31,8 @@
     - [Implementing a Recursive Function exercise - Sum of Digits (my solution)](/exercises/section11/implementing-a-recursive-function-exercise/main.cpp)
     - [Implementing a Recursive Function exercise - Save a Penny](/exercises/section11/implementing-a-recursive-function-save-a-penny/instructions.md)
     - [Implementing a Recursive Function exercise - Save a Penny (my solution)](/exercises/section11/implementing-a-recursive-function-save-a-penny/main.cpp)
+- [Section11: Challenge](/challenges/section11/section11-challenge/section11-challenge.md)
+- [Section11: Challenge (my solution)](/challenges/section11/section11-challenge/main.cpp)
 
 - [External References](#external-references)
 
@@ -237,5 +239,4 @@ It is important that the recursive function can be exited.Every recursive functi
 - [learncpp.com | Scope, Duration, and Linkage](https://www.learncpp.com/cpp-tutorial/compound-statements-blocks/)
 - [learnccp.com | Static local variables](https://www.learncpp.com/cpp-tutorial/static-local-variables/)
 - [learncpp.com | inline functions and variables](https://www.learncpp.com/cpp-tutorial/inline-functions-and-variables/)
-
-- [blank](blank)<sup>[1]</sup>
+- [programiz.com | Convert a given character to uppercase](https://www.programiz.com/cpp-programming/library-function/cctype/toupper)
