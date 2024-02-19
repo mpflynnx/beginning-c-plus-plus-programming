@@ -14,6 +14,7 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
 - [Assignment 1: Letter Pyramid Instructions](/assignments/assignment1/instructions.md)
 - [Assignment 1: Letter Pyramid (My solution)](/assignments/assignment1/main.cpp)
 - [Section11: Functions](/docs/section11.md)
+- [Section12: Pointers and References](/docs/section12.md)
 - [External References](#external-references)
 
 
