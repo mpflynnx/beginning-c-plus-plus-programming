@@ -193,12 +193,25 @@ Further reading:
 
 ### Recursive Functions
 
+Most recursive functions can be implemented with while loops initially. Then for certain solutions and the need for greater efficiency, recursive functions are recommended. 
+
 Further reading: [C course notes - Recursion](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/recursion.md)
 
-[Factorial recursion example code](/exercises/section11/recursion-factorial-example/main.cpp)
-[Fibonacci recursion example code](/exercises/section11/recursion-fibonacci-example/main.cpp)
+- [Factorial recursion example code](/exercises/section11/recursion-factorial-example/main.cpp)
+- [Fibonacci recursion example code](/exercises/section11/recursion-fibonacci-example/main.cpp)
 
+It is important that the recursive function can be exited.Every recursive function must have a base case.
 
+**base case examples**
+```c
+    if (n == 0)
+        return 0;
+```
+
+```c
+    if (n <= 1)
+        return n;	
+```
 ## External References
 - [udemy.com | Course content | Section 11: Functions](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535496#questions/12997232)
 - [cppreference.com | C++ Standard Library header files](https://en.cppreference.com/w/cpp/header)

@@ -13,7 +13,7 @@ unsigned long long fibonacci(unsigned long long n) {
 
 int main() {
     std::cout << fibonacci(5) << std::endl;   // 5
-    //std::cout << fibonacci(30) << std::endl;	// 832040 
+    //std::cout << fibonacci(30) << std::endl;	// 832040
     //std::cout << fibonacci(40) << std::endl; // 102334155
     return 0;
 }
