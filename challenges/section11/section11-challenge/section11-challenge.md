@@ -1,6 +1,6 @@
 ## Section 11 Challenge 
 
-Recall the challenge from Section 9 below.
+Recall the challenge from [Section 9](/challenges/section9/section9-challenge/main.cpp).
 
 Your challenge for section 11 is to modularize your solution to the Section 9
 challenge by refactoring your solution so that it uses uses functions.
