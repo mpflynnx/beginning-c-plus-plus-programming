@@ -13,12 +13,16 @@ My course notes for [Udemy](https://www.udemy.com) course: [Beginning C++ Progra
 - [Section10: Characters and Strings](/docs/section10.md)
 - [Assignment 1: Letter Pyramid Instructions](/assignments/assignment1/instructions.md)
 - [Assignment 1: Letter Pyramid (My solution)](/assignments/assignment1/main.cpp)
-                   
-## References
+- [Section11: Functions](/docs/section11.md)
+- [External References](#external-references)
 
+
+
+## External References
 - [Keywords](https://en.cppreference.com/w/cpp/keyword)
 - [Preprocessor](https://en.cppreference.com/w/cpp/preprocessor)
 - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 - [Fundamental types](https://en.cppreference.com/w/cpp/language/types)
 - [clangd is a language server that can work with many editors via a plugin.](https://clangd.llvm.org/)
+- [Microsoft C++, C, and Assembler documentation](https://learn.microsoft.com/en-us/cpp/?view=msvc-170)
 
