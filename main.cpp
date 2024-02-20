@@ -1,19 +1,16 @@
-#include <cstring>
 #include <iostream>
-#include <string>
+#include <vector>
 
 int main()
 {
 
-    char full_name[50];
+    std::vector <int> test_scores {100, 98, 89, 85, 93};
+    std::vector <int> *pVec{&test_scores};
 
-    // std::string full_name;
-    std::cout << "Enter your full name: ";
-    std::cin.getline(full_name, 50);
-
-    // getline(std::cin, full_name);
-
-    std::cout << full_name << '\n';
+    std::cout << "Value of pVec is: "<< pVec << '\n';
+    std::cout << "Address of test_scores is: " << &test_scores << '\n';
+    std::cout << "Address of pVec is: " << &pVec << '\n';
+    std::cout << "size of test_scores (bytes) is: " << sizeof test_scores << '\n';
 
     return 0;
 }
