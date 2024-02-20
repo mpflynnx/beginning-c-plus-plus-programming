@@ -6,6 +6,10 @@
 - [Declaring pointers](#declaring-pointers)
 - [Accessing pointer address](#accessing-pointer-address)
 - [Dereferencing a pointer](#dereferencing-a-pointer)
+- [Dynamic Memory Allocation](#dynamic-memory-allocation)
+    - [Using `new` to allocate storage](#using-new-to-allocate-storage)
+    - [Using `delete` to deallocate storage](#using-delete-to-deallocate-storage)
+    - [Allocate/deallocate storage for a C- style array](#allocatedeallocate-storage-for-a-c--style-array)
 
 - [External References](#external-references)
 
@@ -216,6 +220,98 @@ First stooge: Larry
 Stooges: Larry Moe Curly
 ```
 
+### Dynamic Memory Allocation
+
+Dynamic memory allocation is a way for running programs to request memory from the operating system when needed. This memory does not come from the program’s limited stack memory (1MB) -- instead, it is allocated from a much larger pool of memory managed by the operating system called the heap (aka free store). On modern machines, the heap can be gigabytes in size.[<sup>[3]</sup>](#external-references)
+
+Further reading:
+- [learncpp.com | Dynamic memory allocation with new and delete](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)
+
+Allocating storage from the heap at runtime.
+
+- We often don't know how much storage we need until we need it
+- We can allocate storage for a variable at run time
+- Recall C++ arrays
+    - We had to provide the size at initialisation and it was fixed.
+    - Unlike vectors which grow and shrink dynamically
+- We can use pointers to access newly allocated heap storage
+- accessing heap-allocated objects is generally slower than accessing stack-allocated objects
+- you are responsible for requesting and disposing of dynamically allocated memory (to prevent memory leaks).
+
+#### Using `new` to allocate storage
+
+To allocate a single variable dynamically, we use the scalar (non-array) form of the `new` operator:
+
+```c
+new int; // dynamically allocate an integer (and discard the result)
+```
+
+In the above case, we’re requesting an integer’s worth of memory from the operating system. The new operator creates the object using that memory, and then returns a pointer containing the address of the memory that has been allocated.
+
+Most often, we’ll assign the return value to our own pointer variable so we can access the allocated memory later.
+
+```c
+int* int_ptr{ new int }; // dynamically allocate an integer and assign the address to ptr so we can access it later
+```
+
+We can then dereference the pointer to access the memory:
+```c
+*int_ptr = 7; // assign value of 7 to allocated memory
+```
+
+On very rare occasions using `new` will fail, for example if there is not heap memory available. By default, if new fails, a `bad_alloc` exception is thrown. An alternate form of `new` that can be used instead to tell `new` to return a null pointer if memory can’t be allocated. This is done by adding the constant `std::nothrow` between the new keyword and the allocation type:
+
+```c
+int* value { new (std::nothrow) int }; // value will be set to a null pointer if the integer allocation fails
+```
+Consequently, the best practice is to check all memory requests to ensure they actually succeeded before using the allocated memory.
+
+#### Using `delete` to deallocate storage
+
+```c
+// assume int_ptr has previously been allocated with operator new
+delete int_ptr; // return the memory pointed to by int_ptr to the operating system
+int_ptr = nullptr; // set int_ptr to be a null pointer
+```
+
+If int_ptr is non-null, the dynamically allocated variable will be deleted. If it is null, nothing will happen.
+
+**Best practices**
+Set deleted pointers to nullptr unless they are going out of scope immediately afterward.
+
+Deleting a null pointer is okay, and does nothing. There is no need to conditionalise your delete statements.
+
+#### Allocate/deallocate storage for a C- style array
+
+To allocate an array dynamically, we use the array form of new and delete (often called new[] and delete[]):
+
+```c
+#include <cstddef>
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter a positive integer: ";
+    std::size_t length{};
+    std::cin >> length;
+
+    int* array{ new int[length]{} }; // use array new.  Note that length does not need to be constant!
+
+    std::cout << "I just allocated an array of integers of length " << length << '\n';
+
+    array[0] = 5; // set element 0 to value 5
+    std::cout << "Element 0: " << array[0] << '\n';
+
+    delete[] array; // use array delete to deallocate array
+
+    // we don't need to set array to nullptr/0 here because it's going out of scope immediately after this anyway
+
+    return 0;
+}
+```
+
+Because we are allocating an array, C++ knows that it should use the array version of new instead of the scalar version of new. Essentially, the new[] operator is called, even though the [] isn’t placed next to the new keyword.
+
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)<sup>[1]</sup>
@@ -223,3 +319,5 @@ Stooges: Larry Moe Curly
 - [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
 - [learncpp.com | null pointers](https://www.learncpp.com/cpp-tutorial/null-pointers/)<sup>[2]</sup>
 - [learncpp.com | Pointers and const](https://www.learncpp.com/cpp-tutorial/pointers-and-const/)
+- [learncpp.com | Dynamic memory allocation with new and delete](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)<sup>[3]</sup>
+- [learncpp.com | Dynamically allocating arrays](https://www.learncpp.com/cpp-tutorial/dynamically-allocating-arrays/)

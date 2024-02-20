@@ -1,24 +1,22 @@
+#include <cstddef>
 #include <iostream>
-#include <vector>
-#include <string>
 
 int main()
 {
+    std::cout << "Enter a positive integer: ";
+    std::size_t length{};
+    std::cin >> length;
 
-    // initialise a C++ string vector
-    std::vector<std::string> stooges {"Larry", "Moe", "Curly"};
-    
-    // initialise a C++ string vector pointer to address of stooges vector
-    std::vector<std::string> *vector_ptr {&stooges};
+    int* array{ new int[length]{} }; // use array new.  Note that length does not need to be constant!
 
-    // print first element of stooge vector
-    std::cout << "First stooge: " << (*vector_ptr).at(0) << '\n';
+    std::cout << "I just allocated an array of integers of length " << length << '\n';
 
-    // print all stooge vector elements
-    std::cout << "Stooges: ";
-    for (auto stooge: *vector_ptr)
-        std::cout << stooge << ' ';
-    std::cout << '\n';
+    array[0] = 5; // set element 0 to value 5
+    std::cout << "Element 0: " << array[0] << '\n';
+
+    delete[] array; // use array delete to deallocate array
+
+    // we don't need to set array to nullptr/0 here because it's going out of scope immediately after this anyway
 
     return 0;
 }
