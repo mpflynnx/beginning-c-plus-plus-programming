@@ -1,16 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 int main()
 {
 
-    std::vector <int> test_scores {100, 98, 89, 85, 93};
-    std::vector <int> *pVec{&test_scores};
+    // initialise a C++ string vector
+    std::vector<std::string> stooges {"Larry", "Moe", "Curly"};
+    
+    // initialise a C++ string vector pointer to address of stooges vector
+    std::vector<std::string> *vector_ptr {&stooges};
 
-    std::cout << "Value of pVec is: "<< pVec << '\n';
-    std::cout << "Address of test_scores is: " << &test_scores << '\n';
-    std::cout << "Address of pVec is: " << &pVec << '\n';
-    std::cout << "size of test_scores (bytes) is: " << sizeof test_scores << '\n';
+    // print first element of stooge vector
+    std::cout << "First stooge: " << (*vector_ptr).at(0) << '\n';
+
+    // print all stooge vector elements
+    std::cout << "Stooges: ";
+    for (auto stooge: *vector_ptr)
+        std::cout << stooge << ' ';
+    std::cout << '\n';
 
     return 0;
 }

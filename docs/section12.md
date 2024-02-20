@@ -5,6 +5,7 @@
 - [Pointers](#pointers)
 - [Declaring pointers](#declaring-pointers)
 - [Accessing pointer address](#accessing-pointer-address)
+- [Dereferencing a pointer](#dereferencing-a-pointer)
 
 - [External References](#external-references)
 
@@ -160,9 +161,65 @@ Address of pVec is: 0x3b8a9ff8f8
 size of test_scores (bytes) is: 24
 ```
 
+### Dereferencing a pointer
+
+The dereference operator (*) (also occasionally called the indirection operator) returns the value at a given memory address as an lvalue.
+
+Given a memory address, we can use the dereference operator (*) to get the value at that address (as an lvalue).
+
+The address-of operator (&) and dereference operator (*) work as opposites: address-of gets the address of an object, and dereference gets the object at an address.
+
+```c
+int score {100}; // initialise score to 100.
+int* score_ptr { &score }; // initialise int pointer to score memory address
+
+std::cout << *score_ptr << '\n'; // dereference score_ptr gets 100
+
+*score_ptr = 200; // change score via score_ptr
+
+std::cout << *score_ptr << '\n'; // dereference score_ptr gets 200
+std::cout << score << '\n'; // score updated 200
+```
+
+Example using C++ string vector
+```c
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main()
+{
+
+    // initialise a C++ string vector
+    std::vector<std::string> stooges {"Larry", "Moe", "Curly"};
+    
+    // initialise a C++ string vector pointer to address of stooges vector
+    std::vector<std::string>* vector_ptr {&stooges};
+
+    // print first element of stooge vector
+    // parentheses important, as .at(0) higher precedence than *vector_ptr
+    std::cout << "First stooge: " << (*vector_ptr).at(0) << '\n';
+
+    // print all stooge vector elements
+    std::cout << "Stooges: ";
+    for (auto stooge: *vector_ptr)
+        std::cout << stooge << ' ';
+    std::cout << '\n';
+
+    return 0;
+}
+```
+
+**Output**
+```bash
+First stooge: Larry
+Stooges: Larry Moe Curly
+```
+
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)<sup>[1]</sup>
 - [C course notes | Pointers](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointers.md)
 - [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
 - [learncpp.com | null pointers](https://www.learncpp.com/cpp-tutorial/null-pointers/)<sup>[2]</sup>
+- [learncpp.com | Pointers and const](https://www.learncpp.com/cpp-tutorial/pointers-and-const/)
