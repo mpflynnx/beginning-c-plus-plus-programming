@@ -9,7 +9,8 @@
 - [Dynamic Memory Allocation](#dynamic-memory-allocation)
     - [Using `new` to allocate storage](#using-new-to-allocate-storage)
     - [Using `delete` to deallocate storage](#using-delete-to-deallocate-storage)
-    - [Allocate/deallocate storage for a C- style array](#allocatedeallocate-storage-for-a-c--style-array)
+    - [Allocate/deallocate storage for a C-style array](#allocatedeallocate-storage-for-a-c--style-array)
+- [Relationship between arrays and pointers](#relationship-between-arrays-and-pointers)
 
 - [External References](#external-references)
 
@@ -237,6 +238,7 @@ Allocating storage from the heap at runtime.
 - We can use pointers to access newly allocated heap storage
 - accessing heap-allocated objects is generally slower than accessing stack-allocated objects
 - you are responsible for requesting and disposing of dynamically allocated memory (to prevent memory leaks).
+- If the pointer to the memory is altered, you lose access to the memory (memory leak)
 
 #### Using `new` to allocate storage
 
@@ -312,6 +314,97 @@ int main()
 
 Because we are allocating an array, C++ knows that it should use the array version of new instead of the scalar version of new. Essentially, the new[] operator is called, even though the [] isn’t placed next to the new keyword.
 
+### Relationship between arrays and pointers
+
+Further reading: -
+- [C course notes | Pointer notation](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointer-notation.md)
+- [learncpp.com | C-style array decay](https://www.learncpp.com/cpp-tutorial/c-style-array-decay/)
+- [learncpp.com | Pointer arithmetic and subscripting](https://www.learncpp.com/cpp-tutorial/pointer-arithmetic-and-subscripting/)
+
+</p>
+
+- The value of an array name is the address of the first element in the array.
+- The value of a pointer address is an address.
+- If the pointer points to the same data type as the array element then the pointer and array name can be used interchangeably (almost).
+
+As shown below an array name decays to a pointer.
+```c
+#include <iostream>
+
+int main()
+{
+    int scores[] {100, 95, 89};
+
+    std::cout << "Memory address of first element of array: " << scores << '\n'; // array name is pointer
+    std::cout << "First element of array: " << *scores << '\n'; // deference array name
+
+    return 0;
+}
+```
+**Output**
+```bash
+Memory address of first element of array: 0x16cffffe14
+First element of array: 100
+```
+
+#### Subscript and offset notation equivalence
+
+```c
+int array_name[] {1,2,3,4,5};
+int* pointer_name { array_name};
+```
+
+| Subscript Notation | Offset Notation
+| --- | --- |
+| array_name[index] | *(array_name + index)|
+| pointer_name[index] | *(pointer_name + index)|
+
+**Example using subscript notation with array name**
+```c
+int scores[] {100, 95, 89};
+
+std::cout << "First element address: " << scores << '\n'; // no need for & here
+std::cout << "First element of array: " << scores[0] << '\n'; // equivalent to scores + 0bytes
+std::cout << "Second element address: " << &scores[1] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Second element of array: " << scores[1] << '\n'; // equivalent to scores + 4bytes(size of int)
+std::cout << "Third element address: " << &scores[2] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Third element of array: " << scores[2] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
+```
+
+**Output**
+```bash
+First element address: 0xd4b31ff874
+First element of array: 100
+Second element address: 0xd4b31ff878 // 4bytes larger than first element address
+Second element of array: 95
+Third element address: 0xd4b31ff87c // 8bytes larger than first element address
+Third element of array: 89
+```
+
+**Example using pointer subscript notation with pointer name**
+```c
+int scores[] {100, 95, 89};
+
+int* score_ptr{scores}; // no need for & address-of operator as scores decays to address
+
+std::cout << "First element address: " << score_ptr << '\n';
+std::cout << "First element of array: " << score_ptr[0] << '\n'; // equivalent to score_ptr + 0
+std::cout << "Second element address: " << &score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Second element of array: " << score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int)
+std::cout << "Third element address: " << &score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Third element of array: " << score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+```
+
+**Output**
+```bash
+First element address: 0xd4b31ff874
+First element of array: 100
+Second element address: 0xd4b31ff878 // 4bytes larger than first element address
+Second element of array: 95
+Third element address: 0xd4b31ff87c // 8bytes larger than first element address
+Third element of array: 89
+```
+
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)<sup>[1]</sup>
@@ -321,3 +414,6 @@ Because we are allocating an array, C++ knows that it should use the array versi
 - [learncpp.com | Pointers and const](https://www.learncpp.com/cpp-tutorial/pointers-and-const/)
 - [learncpp.com | Dynamic memory allocation with new and delete](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)<sup>[3]</sup>
 - [learncpp.com | Dynamically allocating arrays](https://www.learncpp.com/cpp-tutorial/dynamically-allocating-arrays/)
+- [C course notes | Pointer notation](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointer-notation.md)
+- [learncpp.com | C-style array decay](https://www.learncpp.com/cpp-tutorial/c-style-array-decay/)
+- [learncpp.com | Pointer arithmetic and subscripting](https://www.learncpp.com/cpp-tutorial/pointer-arithmetic-and-subscripting/)

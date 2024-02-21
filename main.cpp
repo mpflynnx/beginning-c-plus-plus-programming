@@ -1,22 +1,32 @@
-#include <cstddef>
 #include <iostream>
 
 int main()
 {
-    std::cout << "Enter a positive integer: ";
-    std::size_t length{};
-    std::cin >> length;
 
-    int* array{ new int[length]{} }; // use array new.  Note that length does not need to be constant!
+    int x {};
+    std::cout << "Size of integer storage: " << sizeof x << '\n' << '\n'; // 4bytes
 
-    std::cout << "I just allocated an array of integers of length " << length << '\n';
+    int scores[] {100, 95, 89};
+    std::cout << "Value of array name: " << scores << '\n'; // array name value is memory address
 
-    array[0] = 5; // set element 0 to value 5
-    std::cout << "Element 0: " << array[0] << '\n';
+    int* score_ptr{scores}; // no need for & address-of operator as scores decays to address
+    std::cout << "Value of pointer: " << score_ptr << '\n';
 
-    delete[] array; // use array delete to deallocate array
+    std::cout << "\nArray subscript notation -----------------\n";
+    std::cout << "First element address: " << scores << '\n';
+    std::cout << "First element of array: " << scores[0] << '\n'; // equivalent to scores + 0
+    std::cout << "Second element address: " << &scores[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+    std::cout << "Second element of array: " << scores[1] << '\n'; // equivalent to scores + 4bytes(size of int)
+    std::cout << "Third element address: " << &scores[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+    std::cout << "Third element of array: " << scores[2] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
 
-    // we don't need to set array to nullptr/0 here because it's going out of scope immediately after this anyway
-
+    std::cout << "\nPointer subscript notation -----------------\n";
+    std::cout << "First element address: " << score_ptr << '\n';
+    std::cout << "First element of array: " << score_ptr[0] << '\n'; // equivalent to score_ptr + 0
+    std::cout << "Second element address: " << &score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+    std::cout << "Second element of array: " << score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int)
+    std::cout << "Third element address: " << &score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+    std::cout << "Third element of array: " << score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+    
     return 0;
 }
