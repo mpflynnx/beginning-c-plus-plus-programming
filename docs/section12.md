@@ -16,6 +16,13 @@
     - [Example using pointer subscript notation with pointer name](#example-using-pointer-subscript-notation-with-pointer-name)
     - [Example using array offset notation with array name](#example-using-array-offset-notation-with-array-name)
     - [Example using pointer offset notation with pointer name](#example-using-pointer-offset-notation-with-pointer-name)
+- [Pointer arithmetic](#pointer-arithmetic)
+    - [increment operator](#increment-operator)
+    - [decrement operator](#decrement-operator)
+    - [addition operator](#addition-operator)
+    - [subtraction operator](#subtraction-operator)
+    - [Subtracting two pointers](#subtracting-two-pointers)
+    - [Comparing two pointers with == and != operators](#comparing-two-pointers-with--and--operators)
 
 - [External References](#external-references)
 
@@ -458,6 +465,96 @@ Third element address: 0xd4b31ff87c // 8bytes larger than first element address
 Third element of array: 89
 ```
 
+### Pointer arithmetic
+
+- Pointer can be used in
+    - Assignment expressions
+    - Arithmetic expressions
+    - Comparison expressions
+- C++ allows pointer arithmetic
+- Pointer arithmetic only makes sense with raw arrays
+- Machine specific as type sizes can change
+
+#### increment operator
+
+(++) increments a pointer to point to the next array element (i.e next integer)
+
+```c
+int_ptr++; // increment to next integer
+```
+
+#### decrement operator
+
+(--) decrements a pointer to point to the previous array element (i.e previous integer)
+
+```c
+int_ptr--; // decrement to previous integer
+```
+
+#### addition operator
+
+(+) increment pointer by `n * sizeof(type)`
+
+```c
+int_ptr +=n;
+// or 
+int_ptr = int_ptr +n;
+```
+
+#### subtraction operator
+
+(-) decrement pointer by `n * sizeof(type)`
+
+```c
+int_ptr -=n;
+// or 
+int_ptr = int_ptr -n;
+```
+
+#### Subtracting two pointers
+
+- This determines the number of elements between the pointers.
+- Both pointer must point to the same data type
+```c
+int n = int_ptr2 - int_ptr1;
+```
+
+#### Comparing two pointers with == and != operators
+- Determine if two pointers point to the same location (memory address)
+- Does not compare the data where they point.
+
+```c
+    int x {123};
+    int y {456};
+    int z {789};
+
+    int* x_ptr { &x }; // pointer to x integer
+    int* y_ptr { &y }; // pointer to y integer
+    x = 0; // x changes to 0 here
+    int* z_ptr { &x }; // yet another pointer to x integer
+
+    std::cout << (x_ptr != y_ptr) << '\n'; // true different addresses
+    std::cout << (x_ptr == z_ptr) << '\n'; // true as addresses match
+```
+
+#### Comparing the data pointers point to
+
+- Determine if two pointer point to the same data
+- Use dereference operator (*) on pointer to compare data pointed to
+
+```c
+    int x {123};
+    int y {123};
+    int z {789};
+
+    int* x_ptr { &x };
+    int* y_ptr { &y };
+    int* z_ptr { &z };
+
+    std::cout << (*x_ptr == *y_ptr) << '\n'; // true both x and y = 123
+    std::cout << (x_ptr == y_ptr) << '\n'; // false as different addresses
+    std::cout << (*x_ptr != *z_ptr) << '\n'; // true as z = 789 not 123
+```
 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
