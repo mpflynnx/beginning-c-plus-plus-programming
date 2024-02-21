@@ -2,21 +2,24 @@
 
 int main()
 {
-    int x {123};
-    int y {123};
-    int z {789};
 
-    int* x_ptr { &x };
-    int* y_ptr { &y };
-    int* z_ptr { &z }; 
+    char first_name[] {"Frank"};
 
-    std::cout << z_ptr << '\n';
+    char* char_ptr1 {nullptr};
+    char* char_ptr2 {nullptr};
 
-    std::cout << (*x_ptr == *y_ptr) << '\n'; // true both 123
-    std::cout << (x_ptr == y_ptr) << '\n'; // false different addresses
-    std::cout << (*x_ptr != *z_ptr) << '\n'; // true as z = 789
+    char_ptr1 = &first_name[0]; // equivalent to &first_name which is 'F'
+    char_ptr2 = &first_name[4]; // 'k'
 
-    std::cout << (z_ptr++) << '\n';
-    std::cout << (*z_ptr) << '\n';
+    std::cout << "In first name " 
+              << first_name 
+              << ", " 
+              << *char_ptr2 
+              << " is " 
+              << (char_ptr2 - char_ptr1) 
+              << " characters away from " 
+              << *char_ptr1 
+              << ".\n";
+
     return 0;
 }

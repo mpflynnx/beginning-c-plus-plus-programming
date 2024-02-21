@@ -23,6 +23,7 @@
     - [subtraction operator](#subtraction-operator)
     - [Subtracting two pointers](#subtracting-two-pointers)
     - [Comparing two pointers with == and != operators](#comparing-two-pointers-with--and--operators)
+    - [Looping an array](#looping-an-array)
 
 - [External References](#external-references)
 
@@ -519,6 +520,41 @@ int_ptr = int_ptr -n;
 int n = int_ptr2 - int_ptr1;
 ```
 
+Determine the number of characters between two characters in a C-style string.
+
+```c
+#include <iostream>
+
+int main()
+{
+
+    char first_name[] {"Frank"};
+
+    char* char_ptr1 {nullptr};
+    char* char_ptr2 {nullptr};
+
+    char_ptr1 = &first_name[0]; // equivalent to &first_name which is 'F'
+    char_ptr2 = &first_name[4]; // 'k'
+
+    std::cout << "In first name " 
+              << first_name 
+              << ", " 
+              << *char_ptr2 
+              << " is " 
+              << (char_ptr2 - char_ptr1) 
+              << " characters away from " 
+              << *char_ptr1 
+              << ".\n";
+
+    return 0;
+}
+```
+
+**Output**
+```bash
+In first name Frank, k is 4 characters away from F.
+```
+
 #### Comparing two pointers with == and != operators
 - Determine if two pointers point to the same location (memory address)
 - Does not compare the data where they point.
@@ -539,8 +575,8 @@ int n = int_ptr2 - int_ptr1;
 
 #### Comparing the data pointers point to
 
-- Determine if two pointer point to the same data
-- Use dereference operator (*) on pointer to compare data pointed to
+- Determine if two pointers point to the same data
+- Use dereference operator (*) on pointers to compare data pointed to
 
 ```c
     int x {123};
@@ -551,11 +587,45 @@ int n = int_ptr2 - int_ptr1;
     int* y_ptr { &y };
     int* z_ptr { &z };
 
+    std::cout << std::boolalpha;
     std::cout << (*x_ptr == *y_ptr) << '\n'; // true both x and y = 123
     std::cout << (x_ptr == y_ptr) << '\n'; // false as different addresses
     std::cout << (*x_ptr != *z_ptr) << '\n'; // true as z = 789 not 123
 ```
 
+#### Looping an array
+
+In the code below we deference the pointer and increment in the same expression `*scores_ptr++`. `*` and `++` share precedence. Therefore, right to left associativity is used. `++` takes precedence and the pointer is incremented then it is dereferenced with `*`. If needing to increment the object pointed to, then parentheses is required `(*score_ptr)++`.
+
+```c
+#include <iostream>
+
+int main()
+{
+    int scores[] {102, 93, 56, 34, -1}; // -1 known as a sentinel value or terminator
+
+    int* scores_ptr {scores};
+
+    while (*scores_ptr != -1){
+        std::cout << *scores_ptr++ << '\n'; // never prints -1
+    }
+
+    return 0;
+}
+```
+
+**Output**
+```bash
+102
+93
+56
+34
+```
+
+#### 
+
+
+ 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)<sup>[1]</sup>
