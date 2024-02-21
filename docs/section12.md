@@ -24,6 +24,8 @@
     - [Subtracting two pointers](#subtracting-two-pointers)
     - [Comparing two pointers with == and != operators](#comparing-two-pointers-with--and--operators)
     - [Looping an array](#looping-an-array)
+- [Swap Values using Pointers exercise](/exercises/section12/swap-values-using-pointers/instructions.md)
+- [Swap Values using Pointers (my solution)](/exercises/section12/swap-values-using-pointers/main.cpp)
 
 - [External References](#external-references)
 
@@ -465,6 +467,8 @@ Second element of array: 95
 Third element address: 0xd4b31ff87c // 8bytes larger than first element address
 Third element of array: 89
 ```
+
+**Note:** It is recommended using subscripting only when indexing from the start of the array (element 0). Use pointer arithmetic only when doing relative positioning.
 
 ### Pointer arithmetic
 
