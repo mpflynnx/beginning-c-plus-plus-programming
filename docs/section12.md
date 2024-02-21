@@ -11,6 +11,11 @@
     - [Using `delete` to deallocate storage](#using-delete-to-deallocate-storage)
     - [Allocate/deallocate storage for a C-style array](#allocatedeallocate-storage-for-a-c--style-array)
 - [Relationship between arrays and pointers](#relationship-between-arrays-and-pointers)
+    - [Subscript and offset notation equivalence](#subscript-and-offset-notation-equivalence)
+    - [Example using subscript notation with array name](#example-using-subscript-notation-with-array-name)
+    - [Example using pointer subscript notation with pointer name](#example-using-pointer-subscript-notation-with-pointer-name)
+    - [Example using array offset notation with array name](#example-using-array-offset-notation-with-array-name)
+    - [Example using pointer offset notation with pointer name](#example-using-pointer-offset-notation-with-pointer-name)
 
 - [External References](#external-references)
 
@@ -359,13 +364,13 @@ int* pointer_name { array_name};
 | array_name[index] | *(array_name + index)|
 | pointer_name[index] | *(pointer_name + index)|
 
-**Example using subscript notation with array name**
+#### Example using subscript notation with array name
 ```c
 int scores[] {100, 95, 89};
 
 std::cout << "First element address: " << scores << '\n'; // no need for & here
 std::cout << "First element of array: " << scores[0] << '\n'; // equivalent to scores + 0bytes
-std::cout << "Second element address: " << &scores[1] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Second element address: " << &scores[1] << '\n'; // equivalent to scores + 4bytes(size of int)
 std::cout << "Second element of array: " << scores[1] << '\n'; // equivalent to scores + 4bytes(size of int)
 std::cout << "Third element address: " << &scores[2] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
 std::cout << "Third element of array: " << scores[2] << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
@@ -381,7 +386,7 @@ Third element address: 0xd4b31ff87c // 8bytes larger than first element address
 Third element of array: 89
 ```
 
-**Example using pointer subscript notation with pointer name**
+#### Example using pointer subscript notation with pointer name
 ```c
 int scores[] {100, 95, 89};
 
@@ -389,7 +394,7 @@ int* score_ptr{scores}; // no need for & address-of operator as scores decays to
 
 std::cout << "First element address: " << score_ptr << '\n';
 std::cout << "First element of array: " << score_ptr[0] << '\n'; // equivalent to score_ptr + 0
-std::cout << "Second element address: " << &score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Second element address: " << &score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int)
 std::cout << "Second element of array: " << score_ptr[1] << '\n'; // equivalent to score_ptr + 4bytes(size of int)
 std::cout << "Third element address: " << &score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
 std::cout << "Third element of array: " << score_ptr[2] << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
@@ -404,6 +409,55 @@ Second element of array: 95
 Third element address: 0xd4b31ff87c // 8bytes larger than first element address
 Third element of array: 89
 ```
+**Note:** scores[0] is shorthand for *((scores) + (0)), which is equal to *(scores + 0), which equals *scores.
+
+#### Example using array offset notation with array name
+```c
+int scores[] {100, 95, 89};
+
+std::cout << "First element address: " << scores << '\n';
+std::cout << "First element of array: " << *scores << '\n'; // equivalent to scores[0]
+std::cout << "Second element address: " << scores + 1  << '\n'; // equivalent to scores + 4bytes(size of int)
+std::cout << "Second element of array: " << *(scores + 1) << '\n'; // equivalent to scores[1]
+std::cout << "Third element address: " << scores + 2 << '\n'; // equivalent to scores + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Third element of array: " << *(scores + 2) << '\n'; // equivalent to scores[2]
+```
+
+
+**Output**
+```bash
+First element address: 0x2bb1ffd04
+First element of array: 100
+Second element address: 0x2bb1ffd08
+Second element of array: 95
+Third element address: 0x2bb1ffd0c
+Third element of array: 89
+```
+
+#### Example using pointer offset notation with pointer name
+```c
+int scores[] {100, 95, 89};
+
+int* score_ptr{scores}; // no need for & address-of operator as scores decays to address
+
+std::cout << "First element address: " << score_ptr << '\n';
+std::cout << "First element of array: " << *score_ptr << '\n'; // equivalent to score_ptr + 0
+std::cout << "Second element address: " << (score_ptr + 1) << '\n'; // equivalent to score_ptr + 4bytes(size of int)
+std::cout << "Second element of array: " << *(score_ptr + 1) << '\n'; // equivalent to score_ptr + 4bytes(size of int)
+std::cout << "Third element address: " << (score_ptr + 2) << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+std::cout << "Third element of array: " << *(score_ptr + 2) << '\n'; // equivalent to score_ptr + 4bytes(size of int) + 4bytes(size of int)
+```
+
+**Output**
+```bash
+First element address: 0xd4b31ff874
+First element of array: 100
+Second element address: 0xd4b31ff878 // 4bytes larger than first element address
+Second element of array: 95
+Third element address: 0xd4b31ff87c // 8bytes larger than first element address
+Third element of array: 89
+```
+
 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
