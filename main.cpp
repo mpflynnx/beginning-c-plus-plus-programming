@@ -1,15 +1,27 @@
 #include <iostream>
 
+void doubleValue(int* ptr); // note: ptr is a pointer to non-const in this example
+
 int main()
 {
 
-    int highest {180};
-    int lowest {1};
+    int x{ 5 };
 
-    const int *const score_ptr { &highest };
+    std::cout << "x = " << x << '\n';
 
-    *score_ptr = 86; // Error
-    score_ptr = &lowest; // Error 
+    doubleValue(&x); // we're passing the address of x to the function
+
+    std::cout << "x = " << x << '\n';
+
+    int* ptr {&x}; 
+    doubleValue(ptr); // here we're passing the pointer to the function
+
+    std::cout << "x = " << x << '\n';
 
     return 0;
+}
+
+void doubleValue(int* ptr) // note: ptr is a pointer to non-const in this example
+{
+    *ptr *= 2; // double the value using *=
 }

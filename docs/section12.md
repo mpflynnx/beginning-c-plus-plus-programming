@@ -30,6 +30,8 @@
     - [Pointers to constants](#pointers-to-constants)
     - [Constant pointers](#constant-pointers)
     - [Constant pointers to constants](#constant-pointers-to-constants)
+- [Passing pointers to functions](#passing-pointers-to-functions)
+    - [Example of pass by reference](#example-of-pass-by-reference)
 
 - [External References](#external-references)
 
@@ -687,6 +689,65 @@ There are several ways to qualify pointers using `const`.
     score_ptr = &lowest; // Error 
 ```
 
+### Passing pointers to functions
+Further reading:
+- [learncpp.com | Pass by address](https://www.learncpp.com/cpp-tutorial/pass-by-address/)
+- [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)
+
+
+Pass-by-reference (also known as pass by address) with pointers - defining the function
+
+Two ways are used to declare functions with pointers.
+
+```c
+void doubleValue(int* ptr); // Note * after type
+```
+or 
+```c
+void doubleValue(int *ptr); // Note * before name
+```
+The function can then dereference that pointer to access the object whose address was passed.
+
+#### Example of pass by reference
+```c
+#include <iostream>
+
+void doubleValue(int* ptr); // note: ptr is a pointer to non-const in this example
+
+int main()
+{
+
+    int x{ 5 };
+
+    std::cout << "x = " << x << '\n';
+
+    // first call passing address
+    doubleValue(&x); // we're passing the address of x to the function
+
+    std::cout << "x = " << x << '\n';
+
+    // second call by a pointer
+    int* ptr {&x}; 
+    doubleValue(ptr); // here we're passing a pointer of x to the function
+
+    std::cout << "x = " << x << '\n';
+
+    return 0;
+}
+
+void doubleValue(int* ptr) // note: ptr is a pointer to non-const in this example
+{
+    *ptr *= 2; // double the value using *=
+}
+```
+
+**Output**
+```bash
+x = 5
+x = 10 // after first call
+x = 20 // after second call
+```
+
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
 - [learncpp.com | The stack and the heap](https://www.learncpp.com/cpp-tutorial/the-stack-and-the-heap/)
@@ -700,3 +761,5 @@ There are several ways to qualify pointers using `const`.
 - [C course notes | Pointer notation](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointer-notation.md)
 - [learncpp.com | C-style array decay](https://www.learncpp.com/cpp-tutorial/c-style-array-decay/)
 - [learncpp.com | Pointer arithmetic and subscripting](https://www.learncpp.com/cpp-tutorial/pointer-arithmetic-and-subscripting/)
+- [learncpp.com | Pass by address](https://www.learncpp.com/cpp-tutorial/pass-by-address/)
+- [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)
