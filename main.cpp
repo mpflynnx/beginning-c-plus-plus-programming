@@ -3,23 +3,13 @@
 int main()
 {
 
-    char first_name[] {"Frank"};
+    int highest {180};
+    int lowest {1};
 
-    char* char_ptr1 {nullptr};
-    char* char_ptr2 {nullptr};
+    const int *const score_ptr { &highest };
 
-    char_ptr1 = &first_name[0]; // equivalent to &first_name which is 'F'
-    char_ptr2 = &first_name[4]; // 'k'
-
-    std::cout << "In first name " 
-              << first_name 
-              << ", " 
-              << *char_ptr2 
-              << " is " 
-              << (char_ptr2 - char_ptr1) 
-              << " characters away from " 
-              << *char_ptr1 
-              << ".\n";
+    *score_ptr = 86; // Error
+    score_ptr = &lowest; // Error 
 
     return 0;
 }

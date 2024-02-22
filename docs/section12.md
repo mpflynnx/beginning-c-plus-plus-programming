@@ -26,11 +26,16 @@
     - [Looping an array](#looping-an-array)
 - [Swap Values using Pointers exercise](/exercises/section12/swap-values-using-pointers/instructions.md)
 - [Swap Values using Pointers (my solution)](/exercises/section12/swap-values-using-pointers/main.cpp)
+- [Const and pointers](#const-and-pointers)
+    - [Pointers to constants](#pointers-to-constants)
+    - [Constant pointers](#constant-pointers)
+    - [Constant pointers to constants](#constant-pointers-to-constants)
 
 - [External References](#external-references)
 
 ### Pointers
 Further reading:
+- [learncpp.com | The stack and the heap](https://www.learncpp.com/cpp-tutorial/the-stack-and-the-heap/)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)
 - [C course notes | Pointers](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointers.md)
 
@@ -626,12 +631,65 @@ int main()
 34
 ```
 
-#### 
+### Const and pointers 
+Further reading:
+- [learncpp.com | Pointers and const](https://www.learncpp.com/cpp-tutorial/pointers-and-const/)
 
+There are several ways to qualify pointers using `const`.
 
- 
+- Pointers to constants
+- Constant pointers
+- Constant pointers to constants
+
+#### Pointers to constants
+- const keyword before type in pointer initialisation.
+- The data pointed to by the pointer is constant and cannot be changed.
+- The pointer itself can changed and pointe somewhere else.
+
+```c
+    int highest {180};
+    int lowest {1};
+
+    const int *score_ptr { &highest };
+
+    *score_ptr = 86; // error as const before type in pointer initialisation
+    score_ptr = &lowest; // Assign pointer to another variable address
+```
+
+ #### Constant pointers
+- const keyword after `*` in pointer initialisation.
+- The data pointed to by the pointer can be changed.
+- The pointer itself cannot be changed or point to another variable.
+
+```c
+    int highest {180};
+    int lowest {1};
+
+    int* const score_ptr { &highest };
+
+    *score_ptr = 86; // OK
+    score_ptr = &lowest; // Error as const after * in pointe initialisation
+```
+
+#### Constant pointers to constants
+- const keyword before type in pointer initialisation.
+- const keyword after `*` in pointer initialisation.
+- The data pointed to by the pointer is constant and cannot be changed.
+- The pointer itself cannot change and point somewhere else.
+
+```c
+    int highest {180};
+    int lowest {1};
+
+    const int* const score_ptr { &highest };
+
+    *score_ptr = 86; // Error
+    score_ptr = &lowest; // Error 
+```
+
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
+- [learncpp.com | The stack and the heap](https://www.learncpp.com/cpp-tutorial/the-stack-and-the-heap/)
 - [learncpp.com | Introduction to pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)<sup>[1]</sup>
 - [C course notes | Pointers](https://github.com/mpflynnx/c-programming-for-beginners/blob/main/docs/pointers.md)
 - [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
