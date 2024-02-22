@@ -34,6 +34,10 @@
     - [Example of pass by reference](#example-of-pass-by-reference)
     - [Example of pass by reference using vectors](#example-of-pass-by-reference-using-vectors)
     - [Example of pass by reference using C-style arrays](#example-of-pass-by-reference-using-c-style-arrays)
+- [Returning a pointer from a function](#returning-a-pointer-from-a-function)
+    - [Example of returning a pointer using integers](#example-of-returning-a-pointer-using-integers)
+    - [Example of returning a pointer using dynamically allocated memory](#example-of-returning-a-pointer-using-dynamically-allocated-memory)
+
     
 
 - [External References](#external-references)
@@ -695,6 +699,7 @@ There are several ways to qualify pointers using `const`.
 ### Passing pointers to functions
 Further reading:
 - [learncpp.com | Pass by address](https://www.learncpp.com/cpp-tutorial/pass-by-address/)
+- [learncpp.com | Pass by address part 2](https://www.learncpp.com/cpp-tutorial/pass-by-address-part-2/)
 - [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)
 
 
@@ -818,6 +823,56 @@ void displayArray(const int* array, const int sentinel) // note: pointer to a co
 99 23 45 1 456
 ```
 
+### Returning a pointer from a function
+Further reading:
+- [learncpp.com | Return by reference and return by address](https://www.learncpp.com/cpp-tutorial/return-by-reference-and-return-by-address/)
+
+Functions can return pointers.
+- We need to provide the pointer type in the function declaration and definition
+
+```c
+    type *function();
+```
+- The function will return an address
+- We should return pointers to
+    - Dynamically allocated memory in the function
+    - To data that was passed in
+
+- Never return a pointer to a local function variable!
+
+#### Example of returning a pointer using integers
+
+```c
+#include <iostream>
+#include <vector>
+#include <string>
+
+int* largest_int(int* int_ptr1, int* int_ptr2);
+
+int main() {
+
+    int int1 {99};
+    int int2 {345};
+
+    std::cout << "Largest int value: " << *(largest_int(&int1, &int2));
+
+}
+
+int* largest_int(int* int_ptr1, int* int_ptr2){
+    if (*int_ptr1 > *int_ptr2)
+        return int_ptr1;
+    else
+        return int_ptr2;
+}
+```
+
+**Output**
+```bash
+largest int value: 345
+```
+
+#### Example of returning a pointer using dynamically allocated memory
+
 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
@@ -833,4 +888,5 @@ void displayArray(const int* array, const int sentinel) // note: pointer to a co
 - [learncpp.com | C-style array decay](https://www.learncpp.com/cpp-tutorial/c-style-array-decay/)
 - [learncpp.com | Pointer arithmetic and subscripting](https://www.learncpp.com/cpp-tutorial/pointer-arithmetic-and-subscripting/)
 - [learncpp.com | Pass by address](https://www.learncpp.com/cpp-tutorial/pass-by-address/)
+- [learncpp.com | Pass by address part 2](https://www.learncpp.com/cpp-tutorial/pass-by-address-part-2/)
 - [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)

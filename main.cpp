@@ -2,22 +2,20 @@
 #include <vector>
 #include <string>
 
-void displayArray(const int* array, const int sentinel);
+int* largest_int(int* int_ptr1, int* int_ptr2);
 
-int main()
-{
+int main() {
 
-    int scores[] {99, 23, 45, 1, 456, -1};
-    displayArray(scores, -1);
+    int int1 {99};
+    int int2 {345};
 
-    return 0;
+    std::cout << "Largest int value: " << *(largest_int(&int1, &int2));
+
 }
 
-void displayArray(const int* array, const int sentinel)
-{
-
-    while (*array != sentinel)
-        std::cout << *array++ << ' ';
-    std::cout << '\n'; 
-
+int* largest_int(int* int_ptr1, int* int_ptr2){
+    if (*int_ptr1 > *int_ptr2)
+        return int_ptr1;
+    else
+        return int_ptr2;
 }
