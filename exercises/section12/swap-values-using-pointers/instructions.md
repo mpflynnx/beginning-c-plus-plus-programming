@@ -9,7 +9,7 @@ Write a C++ function `swap_pointers` that takes two integer pointers as input an
 Function Signature:
 
 ```c
-void swap_pointers(int* ptr1, int* ptr2);
+void swapPointers(int* ptr1, int* ptr2);
 ```
 Input:
 
@@ -30,7 +30,7 @@ int b {10};
 int* ptrA = &a;
 int* ptrB = &b;
  
-swap_pointers(ptrA, ptrB);
+swapPointers(ptrA, ptrB);
  
 // After the function call, the values should be swapped.
 // a == 10, b == 5
