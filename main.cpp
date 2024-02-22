@@ -1,21 +1,21 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
-int* largest_int(int* int_ptr1, int* int_ptr2);
+int* create_array(size_t size, int init_value = 0);
 
 int main() {
 
-    int int1 {99};
-    int int2 {345};
+    int* my_array; // int pointer to array first element
+    my_array = create_array(10,99); // function returns address to pointer
 
-    std::cout << "Largest int value: " << *(largest_int(&int1, &int2));
+    // use the array
 
+    delete[] my_array; // free storage when done with array
 }
 
-int* largest_int(int* int_ptr1, int* int_ptr2){
-    if (*int_ptr1 > *int_ptr2)
-        return int_ptr1;
-    else
-        return int_ptr2;
+int* create_array(size_t size, int init_value) {
+   int* new_storage {nullptr};
+   new_storage = new int[size];   
+   for (size_t i{0}; i < size; ++i)
+      *(new_storage + i) = init_value;
+   return new_storage;
 }

@@ -794,8 +794,6 @@ Curly Larry Moe
 #### Example of pass by reference using C-style arrays
 ```c
 #include <iostream>
-#include <vector>
-#include <string>
 
 void displayArray(const int* array, const int sentinel); // note: pointer to a constant
 
@@ -832,6 +830,8 @@ Functions can return pointers.
 
 ```c
     type *function();
+    // or
+    type* function();
 ```
 - The function will return an address
 - We should return pointers to
@@ -844,8 +844,6 @@ Functions can return pointers.
 
 ```c
 #include <iostream>
-#include <vector>
-#include <string>
 
 int* largest_int(int* int_ptr1, int* int_ptr2);
 
@@ -872,7 +870,31 @@ largest int value: 345
 ```
 
 #### Example of returning a pointer using dynamically allocated memory
+This is a very common use case for returning a pointer from a function
 
+```c
+#include <iostream>
+
+int* create_array(size_t size, int init_value = 0);
+
+int main() {
+
+    int* my_array; // int pointer to array first element
+    my_array = create_array(10,99); // function returns address to pointer
+
+    // use the array
+
+    delete[] my_array; // free storage when done with array
+}
+
+int* create_array(size_t size, int init_value) {
+   int* new_storage {nullptr};
+   new_storage = new int[size];   
+   for (size_t i{0}; i < size; ++i) // initialise all elements to init_value
+      *(new_storage + i) = init_value;
+   return new_storage;
+}
+```
 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
