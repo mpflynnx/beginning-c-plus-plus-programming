@@ -1,27 +1,24 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
-void doubleValue(int* ptr); // note: ptr is a pointer to non-const in this example
+void displayVector(const std::vector<std::string>* const vec );
 
 int main()
 {
 
-    int x{ 5 };
+    std::vector<std::string> stooges{"Curly", "Larry", "Moe"};
 
-    std::cout << "x = " << x << '\n';
-
-    doubleValue(&x); // we're passing the address of x to the function
-
-    std::cout << "x = " << x << '\n';
-
-    int* ptr {&x}; 
-    doubleValue(ptr); // here we're passing the pointer to the function
-
-    std::cout << "x = " << x << '\n';
+    displayVector(&stooges); // we're passing the address of stooges to the function
 
     return 0;
 }
 
-void doubleValue(int* ptr) // note: ptr is a pointer to non-const in this example
+void displayVector(const std::vector<std::string>* const vec )
 {
-    *ptr *= 2; // double the value using *=
+
+    for (auto str : *vec) // deference address pointer
+        std::cout << str << ' ';
+    std::cout << '\n';
+
 }

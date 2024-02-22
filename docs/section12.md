@@ -32,6 +32,7 @@
     - [Constant pointers to constants](#constant-pointers-to-constants)
 - [Passing pointers to functions](#passing-pointers-to-functions)
     - [Example of pass by reference](#example-of-pass-by-reference)
+    - [Example of pass by reference using vectors](#example-of-pass-by-reference-using-vectors)
 
 - [External References](#external-references)
 
@@ -747,6 +748,43 @@ x = 5
 x = 10 // after first call
 x = 20 // after second call
 ```
+
+#### Example of pass by reference using vectors
+
+```c
+#include <iostream>
+#include <vector>
+#include <string>
+
+void displayVector(const std::vector<std::string>* const vec ); // note: constant pointer to a constant 
+
+int main()
+{
+
+    std::vector<std::string> stooges{"Curly", "Larry", "Moe"};
+
+    displayVector(&stooges); // we're passing the address of stooges to the function
+
+    return 0;
+}
+
+void displayVector(const std::vector<std::string>* const vec) // note: constant pointer to a constant 
+
+{
+
+    for (auto str : *vec) // deference address pointer
+        std::cout << str << ' ';
+    std::cout << '\n';
+
+}
+```
+
+**Output**
+```bash
+Curly Larry Moe 
+```
+
+
 
 ## External References
 - [udemy.com | Course content | Section 12: Pointers and References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535524#questions)
