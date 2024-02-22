@@ -33,6 +33,8 @@
 - [Passing pointers to functions](#passing-pointers-to-functions)
     - [Example of pass by reference](#example-of-pass-by-reference)
     - [Example of pass by reference using vectors](#example-of-pass-by-reference-using-vectors)
+    - [Example of pass by reference using C-style arrays](#example-of-pass-by-reference-using-c-style-arrays)
+    
 
 - [External References](#external-references)
 
@@ -784,6 +786,37 @@ void displayVector(const std::vector<std::string>* const vec) // note: constant 
 Curly Larry Moe 
 ```
 
+#### Example of pass by reference using C-style arrays
+```c
+#include <iostream>
+#include <vector>
+#include <string>
+
+void displayArray(const int* array, const int sentinel); // note: pointer to a constant
+
+int main()
+{
+
+    int scores[] {99, 23, 45, 1, 456, -1};
+    displayArray(scores, -1);
+
+    return 0;
+}
+
+void displayArray(const int* array, const int sentinel) // note: pointer to a constant, but pointer modifiable
+{
+
+    while (*array != sentinel)
+        std::cout << *array++ << ' ';
+    std::cout << '\n'; 
+
+}
+```
+
+**Output**
+```bash
+99 23 45 1 456
+```
 
 
 ## External References

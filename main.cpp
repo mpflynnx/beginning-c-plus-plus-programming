@@ -2,23 +2,22 @@
 #include <vector>
 #include <string>
 
-void displayVector(const std::vector<std::string>* const vec );
+void displayArray(const int* array, const int sentinel);
 
 int main()
 {
 
-    std::vector<std::string> stooges{"Curly", "Larry", "Moe"};
-
-    displayVector(&stooges); // we're passing the address of stooges to the function
+    int scores[] {99, 23, 45, 1, 456, -1};
+    displayArray(scores, -1);
 
     return 0;
 }
 
-void displayVector(const std::vector<std::string>* const vec )
+void displayArray(const int* array, const int sentinel)
 {
 
-    for (auto str : *vec) // deference address pointer
-        std::cout << str << ' ';
-    std::cout << '\n';
+    while (*array != sentinel)
+        std::cout << *array++ << ' ';
+    std::cout << '\n'; 
 
 }
