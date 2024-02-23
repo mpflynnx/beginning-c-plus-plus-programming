@@ -41,6 +41,8 @@
 - [Passing a Pointer to a Function exercise (my solution)](/exercises/section12/passing-a-pointer-to-a-function/main.cpp)
 - [Find the Maximum Element in an Array using Pointers exercise](/exercises/section12/find-the-maximum-element-in-an-array-using-pointers/instructions.md)    
 - [Find the Maximum Element in an Array using Pointers (my solution)](/exercises/section12/find-the-maximum-element-in-an-array-using-pointers/main.cpp)
+- [Reverse an Array using Pointers exercise](/exercises/section12/reverse-an-array-using-pointers/instructions.md)    
+- [Reverse an Array using Pointers (my solution)](/exercises/section12/reverse-an-array-using-pointers/main.cpp)
 
 - [External References](#external-references)
 
