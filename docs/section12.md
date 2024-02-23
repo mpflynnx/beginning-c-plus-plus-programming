@@ -37,8 +37,10 @@
 - [Returning a pointer from a function](#returning-a-pointer-from-a-function)
     - [Example of returning a pointer using integers](#example-of-returning-a-pointer-using-integers)
     - [Example of returning a pointer using dynamically allocated memory](#example-of-returning-a-pointer-using-dynamically-allocated-memory)
-
-    
+- [Passing a Pointer to a Function exercise](/exercises/section12/passing-a-pointer-to-a-function/instructions.md)
+- [Passing a Pointer to a Function exercise (my solution)](/exercises/section12/passing-a-pointer-to-a-function/main.cpp)
+- [Find the Maximum Element in an Array using Pointers exercise](/exercises/section12/find-the-maximum-element-in-an-array-using-pointers/instructions.md)    
+- [Find the Maximum Element in an Array using Pointers (my solution)](/exercises/section12/find-the-maximum-element-in-an-array-using-pointers/main.cpp)
 
 - [External References](#external-references)
 
