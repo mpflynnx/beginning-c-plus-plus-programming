@@ -838,7 +838,7 @@ Functions can return pointers.
     - Dynamically allocated memory in the function
     - To data that was passed in
 
-- Never return a pointer to a local function variable!
+- **Never return a pointer to a local function variable!**
 
 #### Example of returning a pointer using integers
 
