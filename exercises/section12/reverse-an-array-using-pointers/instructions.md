@@ -35,3 +35,5 @@ Constraints:
 - The array will always have at least one element.
 
 - You must perform the reversal in-place, without allocating extra memory.
+
+[Instructors solution](/exercises/section12/reverse-an-array-using-pointers/instructors-solution.md)
