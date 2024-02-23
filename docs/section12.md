@@ -43,6 +43,8 @@
 - [Find the Maximum Element in an Array using Pointers (my solution)](/exercises/section12/find-the-maximum-element-in-an-array-using-pointers/main.cpp)
 - [Reverse an Array using Pointers exercise](/exercises/section12/reverse-an-array-using-pointers/instructions.md)    
 - [Reverse an Array using Pointers (my solution)](/exercises/section12/reverse-an-array-using-pointers/main.cpp)
+- [Reverse a std::string using Pointers exercise](/exercises/section12/reverse-a-std-string-using-pointers/instructions.md)
+- [Reverse a std::string using Pointers (my solution)](/exercises/section12/reverse-a-std-string-using-pointers/main.cpp)
 
 - [External References](#external-references)
 
