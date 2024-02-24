@@ -2,14 +2,12 @@
 
 ## Table of Contents
 
-- [References](#references)
-    - [What is a Reference?](#what-is-a-reference)
-    - [Using references in range-based for loops](#using-references-in-range-based-for-loop)
+- [What is a Reference?](#what-is-a-reference)
+- [Using references in range-based for loops](#using-references-in-range-based-for-loops)
+- [L-values](#l-values)
+- [R-values](#r-values)
 
-
-### References
-
-#### What is a Reference?
+### What is a Reference?
 
 - An alias for a variable
 - Must be initialised to a variable when declared
@@ -18,7 +16,7 @@
 - Very useful as function parameters
 - Thinks of a reference as a const pointer than automatically deferences 
 
-#### Using references in range-based for loops
+### Using references in range-based for loops
 
 `str` is not a reference in the example below `str` is a copy, so the first range-based loop does nothing to the vector.
 
@@ -59,7 +57,7 @@ Funny
 Funny
 ```
 
-We should add the keyword `const` before `str` in the second range-based loop, as this loop is only outputting the vector. Adding `const` and then trying to update the reference will result in a compiler error.
+We should add the keyword `const` before `&str` in the second range-based loop, as this loop is only required to output the vector. Adding `const` and then trying to update the reference will result in a compiler error.
 
 ```c
    for (auto const &str: stooges)
@@ -67,6 +65,33 @@ We should add the keyword `const` before `str` in the second range-based loop, a
 ```
 
 Always use references in range-based for loops to save creating copies of array or vectors.
+
+## L-values
+
+Used with R-values in more advanced programming techniques with C++.
+
+L-values, are values that have names and are addressable
+L-values can be modified if not made constant
+
+```c
+// l-value examples
+
+int x {111};   // x is an l-value
+x = 1000;      // x is modified
+x = 1000 + 20;
+
+std::string my_name; // my_name is an l-value;
+my_name = "John";    // my_name is modified
+
+// invalid l-values
+100 = x;              // 100  is NOT an l-value
+(1000 + 20) = x;      // (1000 + 20) is NOT an l-value
+std::string my_name;
+my_name = "John";
+"John" = my_name; // "John" is NOT an l-value
+```
+
+## R-values
 
 
 
