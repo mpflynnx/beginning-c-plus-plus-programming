@@ -33,3 +33,5 @@ Write a C++ function named `apply_all` that expects two arrays of integers and t
    Array 2: [ 10 20 30 ]
    Result: [ 10 20 30 40 50 20 40 60 80 100 30 60 90 120 150 ]
 ```
+
+[Instructors solution](/challenges/section12/section12-challenge/instructors-solution.md)

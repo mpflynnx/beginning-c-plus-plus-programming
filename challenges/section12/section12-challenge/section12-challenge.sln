@@ -5,6 +5,12 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "section12-challenge", "section12-challenge.vcxproj", "{4979CFCB-D9FD-4ED5-859F-D7478699E20D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5F10C26-216F-4B87-A943-7741EFAAA139}"
+	ProjectSection(SolutionItems) = preProject
+		instructors-solution.md = instructors-solution.md
+		section12-challenge.md = section12-challenge.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
