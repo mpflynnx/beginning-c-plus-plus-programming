@@ -6,6 +6,8 @@
 - [Using references in range-based for loops](#using-references-in-range-based-for-loops)
 - [L-values](#l-values)
 - [R-values](#r-values)
+- [l-value references](#l-value-references)
+- [When to use pointers verses reference parameters](#when-to-use-pointers-verses-reference-parameters)
 
 ### What is a Reference?
 
@@ -68,7 +70,7 @@ We should add the keyword `const` before `&str` in the second range-based loop, 
 
 Always use references in range-based for loops to save creating copies of array or vectors.
 
-## L-values
+### L-values
 
 Futher reading:
 - [learncpp.com | Value categories (lvalues and rvalues)](https://www.learncpp.com/cpp-tutorial/value-categories-lvalues-and-rvalues/)
@@ -103,7 +105,7 @@ my_name = "John";
 "John" = my_name; // "John" is NOT an l-value
 ```
 
-## R-values
+### R-values
 
 Anything that is  not a l-value is a r-value.
 
@@ -171,6 +173,42 @@ square(num); // pass by reference num
 
 square(5); // error as 5 cannot be referenced, it has no address (r-value)
 ```
+
+### When to use pointers verses reference parameters
+
+Further reading:
+- [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)
+- [learncpp.com | Pass by const lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/)
+
+Use pass-by-value when:
+- The function does **not** modify the actual parameter
+- the parameter is small and efficient to copy simple types (int, charm double etc)
+
+Use pass-by-reference with a pointer when:
+- the function **does** modify the actual parameter
+- the parameter is expensive to copy (vectors, std::string, etc)
+- its okay for the the pointer to be `nullptr` (references cannot be null)
+
+Use pass-by-reference with pointer to `const` when:
+- the function does **not** modify the actual parameter
+- the parameter is expensive to copy
+- its okay for the pointer to be `nullptr`
+
+Use pass-by-reference with `const` pointer to `const` when:
+- the function does **not** modify the actual parameter
+- the parameter is expensive to copy
+- the pointer will **not** be modified
+
+Use pass-by-reference using a reference when:
+- the function **does** modify the actual parameter
+- the parameter is expensive to copy
+- the parameter will never need to be `nullptr`
+
+Use pass-by-reference using a `const` reference when:
+- the function does **not** modify the actual parameter
+- the parameter is expensive to copy
+- the parameter will never need to be `nullptr`
+
 [Return to top](#table-of-contents)
 
 ## External References
@@ -178,3 +216,5 @@ square(5); // error as 5 cannot be referenced, it has no address (r-value)
 - [learncpp.com | Value categories (lvalues and rvalues)](https://www.learncpp.com/cpp-tutorial/value-categories-lvalues-and-rvalues/)
 - [cppreference.com | Value categories](https://en.cppreference.com/w/cpp/language/value_category)
 - [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
+- [learncpp.com | Pass by lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/)
+- [learncpp.com | Pass by const lvalue reference](https://www.learncpp.com/cpp-tutorial/pass-by-const-lvalue-reference/)
