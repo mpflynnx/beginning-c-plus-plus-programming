@@ -16,9 +16,11 @@
 - Very useful as function parameters
 - Thinks of a reference as a const pointer than automatically deferences 
 
+Futher reading:
+- [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
 ### Using references in range-based for loops
 
-`str` is not a reference in the example below `str` is a copy, so the first range-based loop does nothing to the vector.
+`str` is not a reference in the example below. `str` is a copy, so the first range-based loop does nothing to the vector.
 
 ```c
 #include <iostream>
@@ -68,14 +70,24 @@ Always use references in range-based for loops to save creating copies of array 
 
 ## L-values
 
-Used with R-values in more advanced programming techniques with C++.
+Futher reading:
+- [learncpp.com | Value categories (lvalues and rvalues)](https://www.learncpp.com/cpp-tutorial/value-categories-lvalues-and-rvalues/)
+- [cppreference.com | Value categories](https://en.cppreference.com/w/cpp/language/value_category)
 
-L-values, are values that have names and are addressable
-L-values can be modified if not made constant
+Used with r-values in more advanced programming techniques with C++.
+
+Prior to C++11, there were only two possible value categories: l-value and r-value.
+
+In C++11, three additional value categories (gl-value, pr-value, and x-value) were added to support a new feature called move semantics.
+
+l-values:-
+- are values that have names
+- have an address that can be stored in a pointer
+- can be modified if not made constant
+- can appear on the left-hand and right-hand side of a assignment statement
 
 ```c
 // l-value examples
-
 int x {111};   // x is an l-value
 x = 1000;      // x is modified
 x = 1000 + 20;
@@ -93,10 +105,76 @@ my_name = "John";
 
 ## R-values
 
+Anything that is  not a l-value is a r-value.
 
+r-values are: -
+- non-addressable and non-assignable
+- on the right-hand side of an assignment expression
+- a literal
+- a temporary (created by the compiler) which is intended to be non-modifiable 
 
+```c
+// r-value examples
+int x {111};   // 111 is an r-value
+int y = x + 20; // (x +20) is an r-value
+
+std::string my_name; 
+my_name = "John";    // "Frank" is an r-value
+
+int max = max(20,30); // max(20,30) is an r-value
+```
+
+r-values can be assigned to l-values explicitly.
+
+```c
+int x {100};
+int y {0};
+
+y = 111; // r-value 111 assigned to l-value y
+x = x + y; // r-value (x+y) assigned to l-value x
+```
+
+**Key insight**
+
+A rule of thumb to identify l-value and r-value expressions:
+
+- L-value expressions are those that evaluate to variables or other identifiable objects that persist beyond the end of the expression.
+- R-value expressions are those that evaluate to literals or values returned by functions/operators that are discarded at the end of the expression.
+
+### l-value references
+
+Commonly just called a reference since prior to C++11 there was only one type of reference.
+
+Further reading:
+- [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
+
+l-value references reference l-values.
+
+```c
+int x {111};
+
+int& ref1 {x}; // ref1 is a reference to l-value x
+ref1 = 1111;
+
+int& ref2 = 100; // error 100 is an r-value
+```
+
+Take function `square` below, it expects a l-value
+```c
+int square(int &n) {
+   return n*n;
+}
+
+int num {111};
+
+square(num); // pass by reference num
+
+square(5); // error as 5 cannot be referenced, it has no address (r-value)
+```
 [Return to top](#table-of-contents)
 
 ## External References
 - [udemy.com | Course content | Section 12: References](https://www.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535548#questions)
-- []()
+- [learncpp.com | Value categories (lvalues and rvalues)](https://www.learncpp.com/cpp-tutorial/value-categories-lvalues-and-rvalues/)
+- [cppreference.com | Value categories](https://en.cppreference.com/w/cpp/language/value_category)
+- [learncpp.com | Lvalue references](https://www.learncpp.com/cpp-tutorial/lvalue-references/)
