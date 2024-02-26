@@ -1,19 +1,16 @@
-#include <cstring>
 #include <iostream>
+#include <vector>
 #include <string>
 
-int main()
-{
+int main() {
 
-    char full_name[50];
+   std::vector<std::string> stooges { "Larry", "Moe", "Curly"};
 
-    // std::string full_name;
-    std::cout << "Enter your full name: ";
-    std::cin.getline(full_name, 50);
+   for (auto &str: stooges)
+      str = "Funny"; 
 
-    // getline(std::cin, full_name);
+   for (auto const &str: stooges)
+      std::cout << str << '\n'; // 
 
-    std::cout << full_name << '\n';
-
-    return 0;
+   return 1;
 }
