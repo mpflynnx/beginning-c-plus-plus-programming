@@ -183,6 +183,23 @@ std::string s2 {"Frank"};
 std::cout << s2.at(0) << '\n'; // output: F 
 ```
 
+Access last character of std::string using `.back()`
+
+```c
+std::string s("Exemplary");
+std::string lastChar(1, s.back()); // "y"
+std::cout << "lastChar: " << lastChar << '\n'; // "y"
+```
+
+Update last character of std::string
+
+```c
+std::string s("Exemplary");
+char& back = s.back();
+back = 's';
+std::cout << s << '\n'; // "Exemplars"
+```
+
 **Range-based loop example**
 Accessing string characters using a range-based for loop.
 ```c
@@ -409,3 +426,4 @@ if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
 - [insert()](https://en.cppreference.com/w/cpp/string/basic_string/insert)
 - [swap()](https://en.cppreference.com/w/cpp/string/basic_string/swap)
 - [learncpp.com - Introduction to std::string](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)<sup>[1]</sup>
+- [C++ string back member function](https://en.cppreference.com/w/cpp/string/basic_string/back.html)
