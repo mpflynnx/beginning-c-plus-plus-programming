@@ -351,6 +351,22 @@ std::cout << s1.length() << '\n'; // 14 chars incl spaces
 std::cout << s1.size() << '\n'; // 14 chars incl spaces
 ```
 
+#### Check if the string has no characters - empty()
+
+bool empty() const; - true if the string is empty, false otherwise
+
+```c
+std::string s2; // empty string
+std::boolalpha(std::cout);
+
+if (s2.empty()) {
+    std::cout << "s2.empty():" << s2.empty() << "\t s2:'" << s2 << "'\n"; // s2.empty():true	 s2:''
+}
+
+s2 = "Exemplar";
+std::cout << "s2.empty():" << s2.empty() << "\t s2:'" << s2 << "'\n"; // s2.empty():false         s2:'Exemplar'
+```
+
 #### Compound concatenation operator
 
 [operator +=](https://en.cppreference.com/w/cpp/string/basic_string/operator%2B%3D) appends additional characters to the string.
@@ -426,4 +442,5 @@ if (journal_entry_2 < journal_entry_1) { // Leibniz less than Newton - true
 - [insert()](https://en.cppreference.com/w/cpp/string/basic_string/insert)
 - [swap()](https://en.cppreference.com/w/cpp/string/basic_string/swap)
 - [learncpp.com - Introduction to std::string](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)<sup>[1]</sup>
-- [C++ string back member function](https://en.cppreference.com/w/cpp/string/basic_string/back.html)
+- [C++ string back() member function](https://en.cppreference.com/w/cpp/string/basic_string/back.html)
+- [C++ string empty() member function](https://en.cppreference.com/w/cpp/string/basic_string/empty.html)
