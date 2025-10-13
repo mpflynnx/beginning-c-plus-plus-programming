@@ -246,6 +246,7 @@ for (var_type var_name: sequence) {
 ```
 
 Can use the `auto` keyword, the compiler will automatically detect the type, based on the collection.
+Recommended when there is no need for an index variable such as `unsigned i`
 
 ```c
 #include <iostream>
