@@ -185,6 +185,19 @@ for (unsigned i {0}; i <= 15; ++i) // Can use ++i, or i++, compiler will optimis
 std::cout << "sum: " << sum;
 ```
 
+**Example using auto keyword to derive unsigned integer**
+```c
+int sum {};
+
+for (auto i {0u}; i <= 15; ++i) // {0u} is initializer for unsigned int
+{
+    if ((i % 2) != 0)
+        sum += i;
+}
+
+std::cout << "sum: " << sum;
+```
+
 **Output**
 ```bash
 sum: 64
